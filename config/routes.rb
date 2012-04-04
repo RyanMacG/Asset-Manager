@@ -1,12 +1,11 @@
 AssetManager::Application.routes.draw do
-   root to: 'static_pages#home'
+   get "users/new"
 
-   get "static_pages/home"
-   get "static_pages/help"
-   get "static_pages/about"
+   root to: 'static_pages#home'
    
-   match '/about', to: 'static_pages#about'
-   match '/help', to: 'static_pages#help'
+   match '/signup',  to: 'users#new'
+   match '/about',   to: 'static_pages#about'
+   match '/help',    to: 'static_pages#help'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
