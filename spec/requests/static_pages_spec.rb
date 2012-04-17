@@ -1,3 +1,7 @@
+#This project is designed from a Test Driven Development methodology, for this to work I write tests
+#for the features to be implemented and then make sure they fail. Then I write appropriate code to make
+#them pass. This can focus on making sure layouts render correctly or be used to ensure users are functioning
+#as intended.
 require 'spec_helper'
 
 describe "Static Pages" do
