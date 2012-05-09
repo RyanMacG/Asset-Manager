@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:success] = "Welcome to te JTC Asset Manager"
+      sign_in @user
+      flash[:success] = "Welcome to the JTC Asset Manager"
       redirect_to @user
     else
       render 'new'
