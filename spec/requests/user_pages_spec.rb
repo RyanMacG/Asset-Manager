@@ -5,7 +5,6 @@ describe "User pages" do
    subject { page }
    
    describe "index" do
-     
      let(:user) { FactoryGirl.create(:user) }
      
      before do
@@ -22,6 +21,25 @@ describe "User pages" do
        it { should have_link('Next') }
        its(:html) { should match('>2</a>') } 
        #it { should have_link('2') } would pass due to user name links
+     end
+     
+     describe "delete links" do
+       it { should_not have_link('delete') }
+       
+       describe "as admin" do
+         let(:admin) { FactoryGirl.create(:admin) }
+         before do
+           sign_in admin
+           visit users_path
+         end
+         
+         it { should have_link('delete', href: user_path(User.first)) }
+         it "should be able to delete another user" do
+           expect { click_link('delete') }.to change(User, :count).by(-1)
+         end
+         #and because deleting yourself is dumb...
+         it { should_not have_link('delete', href: user_path(admin)) }
+       end
      end
    
      it "should list each user" do

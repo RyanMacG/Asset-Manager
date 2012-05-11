@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update]
   before_filter :correct_user,   only: [:edit, :update]
+  before_filter :admin_user,     only: :destroy
   
   def new
     @user = User.new
@@ -15,6 +16,12 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "Target Annihilated! Pew Pew"
+    redirect_to users_path
   end
   
   def show
@@ -49,5 +56,10 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
+    end
+    
+    #No pew pew for plebs
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
     end
 end
