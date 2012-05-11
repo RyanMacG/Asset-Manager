@@ -1,8 +1,8 @@
 #Allows us to define objects and insert them into the database for testing purposes
 FactoryGirl.define do
   factory :user do
-    name "Ryan MacGillivray"
-    email "ryan.macgillivray@jtcfurnituregroup.com"
+    sequence(:name)  { |n| "Person #{n}" }
+    sequence(:email) { |n| "person_#{n}@example.com" }
     password "foobar"
     password_confirmation "foobar"
   end

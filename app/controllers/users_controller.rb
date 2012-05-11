@@ -35,14 +35,14 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
   
   private
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_path, notice: "Please sign in if you want to do that."
+        redirect_to signin_path, notice: "Please sign in to access that"
       end
     end
     
