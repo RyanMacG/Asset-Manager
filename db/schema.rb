@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20120514083618) do
   create_table "assets", :force => true do |t|
     t.string   "asset_description"
     t.string   "asset_type"
+    t.string   "status"
     t.string   "serial_no"
     t.integer  "user_id"
     t.string   "comment"

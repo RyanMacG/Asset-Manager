@@ -3,6 +3,7 @@ class CreateAssets < ActiveRecord::Migration
     create_table :assets do |t|
       t.string :asset_description
       t.string :asset_type
+      t.string :status
       t.string :serial_no
       t.integer :user_id
       t.string :comment
