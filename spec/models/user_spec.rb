@@ -127,4 +127,18 @@ describe User do
        specify { user_for_invalid_password.should be_false }
      end
    end
+   
+   describe "asset association" do
+     before { @user.save }
+     let!(:older_asset) do
+       FactoryGirl.create(:asset, user: @user, created_at: 1.day.ago)
+     end
+     let!(:newer_asset) do
+       FactoryGirl.create(:asset, user: @user, created_at: 1.hour.ago)
+     end
+     
+     it "should have the right assets in the right order" do
+       @user.assets.should == [older_asset, newer_asset]
+     end
+   end
 end
