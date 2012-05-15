@@ -180,8 +180,16 @@ input, textarea, select, .uneditable-input {
 	}
 }
 
-.description .type {
+.description {
+	padding-left: 65px;
+}
+
+.type {
 	display: block;
+	padding-left: 65px;
+}
+.status {	
+	float: right;
 }
 
 .id {
@@ -192,6 +200,11 @@ input, textarea, select, .uneditable-input {
 .serial {
 	float: right;
 	margin-left: 10px;
+}
+
+.comment {
+	color: red;
+	padding-left: 65px;
 }
 
 .timestamp {
