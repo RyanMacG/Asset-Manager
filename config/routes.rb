@@ -1,6 +1,7 @@
 AssetManager::Application.routes.draw do
    resources :users
    resources :sessions, only: [:new, :create, :destroy]
+   resources :assets
 
    root to: 'static_pages#home'
    
