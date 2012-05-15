@@ -87,9 +87,9 @@ describe "User pages" do
    describe "profile page" do
      #Creates a User factory using FactoryGirl that we can use for testing
      let(:user) { FactoryGirl.create(:user) }
-     let(:a1)   { FactoryGirl.create(:asset, user: user, asset_description: "An item", status: "written off",
+     let!(:a1)   { FactoryGirl.create(:asset, user: user, asset_description: "An item", status: "written off",
                                      serial_no: "ABC123", asset_type: "mobile") }
-     let(:a2)   { FactoryGirl.create(:asset, user: user, asset_description: "Another item", 
+     let!(:a2)   { FactoryGirl.create(:asset, user: user, asset_description: "Another item", 
                                      status: "allocated", serial_no: "ABC1234", asset_type: "laptop") }
      
      before { visit user_path(user) }
@@ -99,7 +99,7 @@ describe "User pages" do
      
      describe "assets" do
        it { should have_content(a1.asset_description) }
-       it { should have_content(a2,asset_description) }
+       it { should have_content(a2.asset_description) }
        it { should have_content(a1.status) }
        it { should have_content(a2.serial_no) }
        it { should have_content(user.assets.count) }

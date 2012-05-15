@@ -57,7 +57,7 @@ h2 {
 	color: $grayLight;
 }
 
-p{
+p {
 	font-size: 1.1em;
 	line-height: 1.7em;
 }
@@ -107,8 +107,8 @@ footer {
 
 /* sidebar */
 
-aside{
-	section{
+aside {
+	section {
 		padding: 10px 0;
 		border-top: 1px solid $grayLighter;
 		&:first-child{
@@ -116,12 +116,12 @@ aside{
 			padding-top: 0;
 		}
 	}
-	span{
+	span {
 		display: block;
 		margin-bottom: 3px;
 		line-height: 1;
 	}
-	h1{
+	h1 {
 		font-size: 1.5em;
 		text-align: left;
 		letter-spacing: -1px;
@@ -131,7 +131,7 @@ aside{
 
 /* forms */
 
-input, textarea, select, .uneditable-input{
+input, textarea, select, .uneditable-input {
 	border: 1px solid #bbb;
 	width: 100%;
 	padding: 10px;
@@ -140,7 +140,7 @@ input, textarea, select, .uneditable-input{
 	@include box_sizing;
 }
 
-#error_explanation{
+#error_explanation {
 	color:#f00;
 	ul{
 		list-style: none;
@@ -148,7 +148,7 @@ input, textarea, select, .uneditable-input{
 	}
 }
 
-.field_with_errors{
+.field_with_errors {
 	@extend .control-group;
 	@extend .error;
 }
@@ -168,8 +168,45 @@ input, textarea, select, .uneditable-input{
 	}
 }
 
+/* Assets */
+
+.assets {
+	list-style: none;
+	margin: 10px 0 0 0;
+	
+	li {
+		padding: 10px 0;
+		border-top: 1px solid #e8e8e8;
+	}
+}
+
+.description .type {
+	display: block;
+}
+
+.id {
+	float: left;
+	margin-right: 10px;
+}
+
+.serial {
+	float: right;
+	margin-left: 10px;
+}
+
+.timestamp {
+	color: $grayLight;
+}
+
+aside{
+	textarea {
+		height: 100px;
+		margin-bottom: 5px;
+	}
+}
+
 /* misc */
-.debug_dump{
+.debug_dump {
 	clear: both;
 	float: left;
 	width: 100%;

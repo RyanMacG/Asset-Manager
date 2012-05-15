@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @asset = @user.assets.paginate(page: params[:page])
   end
   
   def edit

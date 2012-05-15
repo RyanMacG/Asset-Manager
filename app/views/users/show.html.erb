@@ -7,4 +7,13 @@
 			</h1>
 		</section>
 	</aside>
+	<div class="span8">
+		<% if @user.assets.any? %>
+			<h3>Assets (<%= @user.assets.count %>)</h3>
+			<ol class="assets">
+				<%= render @asset %>
+			</ol>
+			<%= will_paginate @asset %>
+		<% end %>
+	</div>
 </div>

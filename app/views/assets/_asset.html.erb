@@ -1,0 +1,11 @@
+<li>
+	<span class="id">JTC<%= asset.id %></span>
+	<span class="type"><%= asset.asset_type %>:</span>
+	<span class="description"><%= asset.asset_description %></span>
+	<span class="serial"><%= asset.serial_no %></span>
+	<span class="status"><%= asset.status %></span>
+	<span class="comment"><%= asset.comment %></span>
+	<span class="timestamp">
+		<br />Added <%= time_ago_in_words(asset.created_at) %> ago.
+	</span>
+</li>
