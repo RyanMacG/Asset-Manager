@@ -188,6 +188,12 @@ input, textarea, select, .uneditable-input {
 	display: block;
 	padding-left: 65px;
 }
+
+.comment {
+	color: red;
+	padding-left: 65px;
+}
+
 .status {	
 	float: right;
 }
@@ -202,20 +208,8 @@ input, textarea, select, .uneditable-input {
 	margin-left: 10px;
 }
 
-.comment {
-	color: red;
-	padding-left: 65px;
-}
-
 .timestamp {
 	color: $grayLight;
-}
-
-aside{
-	textarea {
-		height: 100px;
-		margin-bottom: 5px;
-	}
 }
 
 /* misc */

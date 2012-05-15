@@ -6,6 +6,7 @@
 	<%= f.text_field :serial_no,  		 placeholder: "Insert the serial number"%>
 	<%= f.text_field :status, 			 placeholder: "Allocated/stock/written off"%>
 	<%= f.text_field :comment, 			 placeholder: "Any comments?" %>
+	<%= f.text_field :date_purchased, 	 placeholder: "When was it bought?(Optional)" %>
   </div>
   <%= f.submit "Add", class: "btn btn-large btn-primary" %>
 <% end %>
