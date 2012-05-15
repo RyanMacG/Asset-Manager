@@ -49,4 +49,23 @@ describe "Asset pages" do
       end
     end
   end
+  
+  describe "show page" do
+    describe "for signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+      
+      before do
+        FactoryGirl.create(:asset, user: user)
+        FactoryGirl.create(:asset, user: user)
+        sign_in user
+        visit '/assets/show'
+      end
+      
+      it "should render the user feed" do
+        user.feed.each do |item|
+          page.should have_selector("li##{item.id}", text: item.asset_description)
+        end
+      end
+    end
+  end
 end

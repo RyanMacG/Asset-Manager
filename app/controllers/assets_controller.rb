@@ -10,4 +10,11 @@ class AssetsController < ApplicationController
       render 'static_pages/home'
     end
   end
+  
+  def show
+    if signed_in?
+      @asset      = current_user.assets.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
+  end
 end

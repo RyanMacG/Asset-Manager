@@ -1,0 +1,11 @@
+<% provide(:title, 'Assets') %>
+<% if signed_in? %>
+	<div class="row">
+		<h3>Assets</h3>
+		<%= render 'shared/feed' %>
+	</div>
+<% else %>
+  redirect_to root_path
+  <%= render 'shared/error_messages' %>
+<% end %>
+  
