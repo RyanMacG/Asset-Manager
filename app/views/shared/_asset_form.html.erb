@@ -11,7 +11,7 @@
 	<%= f.date_select(:date_purchased, :start_year => 2005, :use_month_numbers => true,
 	                                   :order => [:day, :month, :year], :prompt => { :day => 'Select day',
 									   :month => 'Select month', :year => 'Select year' }) %>
-									   
+	<!--<%= f.text_field.datepicker :date_purchased, placeholder: "Date purchased?"%>-->
   </div>
   <%= f.submit "Add", class: "btn btn-large btn-primary" %>
 <% end %>
