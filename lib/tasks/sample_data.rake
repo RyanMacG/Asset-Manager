@@ -26,8 +26,9 @@ namespace :db do
       serial = "ABC123"
       status = "allocated"
       type   = "laptop"
+      date   = "15/05/12"
       users.each { |user| user.assets.create!(asset_description: description, serial_no: serial,
-                                              status: status, asset_type: type, date_purchased: created_at) }
+                                              status: status, asset_type: type, date_purchased: date) }
     end
   end
 end
