@@ -4,6 +4,8 @@
 	</span>
 	<span class="id">JTC<%= feed_item.id %></span>
 	<span class="description"><%= feed_item.asset_description %></span>
+	<span class="serial">Serial no: <%= feed_item.serial_no %></span>
+	<span class="status"><%= feed_item.status %></span>
 	<span class="timestamp">
 		<br />Added <%= time_ago_in_words(feed_item.created_at) %> ago. <br /> Assigned to: 					<%=feed_item.user.name %>
 		<br />Date Purchased: <%= feed_item.date_purchased %> 

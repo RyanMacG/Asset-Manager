@@ -1,0 +1,7 @@
+<%= provide(:title, 'Assets') %>
+<h1>All assets</h1>
+<%= will_paginate @assets %>
+	<ol class="assets">
+		<%= render @assets %>
+	</ol>
+<%= will_paginate @assets %>
