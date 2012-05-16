@@ -87,6 +87,14 @@ describe "Authentication" do
           end
         end
       end
+      
+      describe "in the assets controller" do
+        
+        describe "submitting to the create action" do
+          before { post assets_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
     end
     
     describe "as wrong user" do

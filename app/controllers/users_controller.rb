@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @asset = @user.assets.paginate(page: params[:page])
   end
   
   def edit
@@ -46,12 +47,6 @@ class UsersController < ApplicationController
   end
   
   private
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_path, notice: "Please sign in to access that"
-      end
-    end
     
     def correct_user
       @user = User.find(params[:id])

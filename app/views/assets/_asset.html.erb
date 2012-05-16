@@ -1,0 +1,12 @@
+<li>
+	<span class="id">JTC<%= asset.id %></span>
+	<span class="serial"><%= asset.serial_no %></span>
+	<span class="status">Status: <%= asset.status %></span>
+	<span class="type">Type: <%= asset.asset_type %><br/></span>
+	<span class="description">Description: <%= asset.asset_description %><br /></span>
+	<span class="comment"><em><%= asset.comment %></em></span>
+	<span class="timestamp">
+		<br />Added <%= time_ago_in_words(asset.created_at) %> ago. <br /> Assigned to: <%= @user.name %>
+		<br />Date Purchased: <%= asset.date_purchased %> 
+	</span>
+</li>

@@ -9,6 +9,7 @@
 #  updated_at      :datetime        not null
 #  password_digest :string(255)
 #  remember_token  :string(255)
+#  admin           :boolean         default(FALSE)
 #
 
 require 'spec_helper'
@@ -30,6 +31,7 @@ describe User do
    it { should respond_to(:remember_token) }
    it { should respond_to(:authenticate) }
    it { should respond_to(:admin) }
+   it { should respond_to(:assets) }
    
    it { should be_valid }
    it { should_not be_admin }
@@ -123,6 +125,20 @@ describe User do
        
        it { should_not == user_for_invalid_password }
        specify { user_for_invalid_password.should be_false }
+     end
+   end
+   
+   describe "asset association" do
+     before { @user.save }
+     let!(:older_asset) do
+       FactoryGirl.create(:asset, user: @user, created_at: 1.day.ago)
+     end
+     let!(:newer_asset) do
+       FactoryGirl.create(:asset, user: @user, created_at: 1.hour.ago)
+     end
+     
+     it "should have the right assets in the right order" do
+       @user.assets.should == [older_asset, newer_asset]
      end
    end
 end

@@ -1,0 +1,12 @@
+<%= form_for (@asset) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+  	<%= f.text_field :asset_description, placeholder: "Insert asset description..." %>
+	<%= f.text_field :asset_type, 		 placeholder: "Mobile/Laptop/Computer...?" %>
+	<%= f.text_field :serial_no,  		 placeholder: "Insert the serial number"%>
+	<%= f.text_field :status, 			 placeholder: "Allocated/stock/written off"%>
+	<%= f.text_field :comment, 			 placeholder: "Any comments?" %>
+	<%= f.text_field :date_purchased, 	 placeholder: "When was it bought?(Optional)" %>
+  </div>
+  <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+<% end %>
