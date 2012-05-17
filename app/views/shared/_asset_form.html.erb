@@ -6,11 +6,7 @@
 	<%= f.text_field :serial_no,  		 placeholder: "Insert the serial number"%>
 	<%= f.text_field :status, 			 placeholder: "Allocated/stock/written off"%>
 	<%= f.text_field :comment, 			 placeholder: "Any comments?" %>
-	<!--<%= f.text_field :date_purchased, 	 placeholder: "Date purchased? (leave blank if unknown)", 
-										 dateFormat: "dd-mm-yy"%>-->
-	<%= f.date_select(:date_purchased, :start_year => 2005, :use_month_numbers => true,
-	                                   :order => [:day, :month, :year], :prompt => { :day => 'Select day',
-									   :month => 'Select month', :year => 'Select year' }) %>
+	<%= f.text_field :date_purchased,	 placeholder: "Date Purchased"%>
   </div>
   <%= f.submit "Add", class: "btn btn-large btn-primary" %>
 <% end %>

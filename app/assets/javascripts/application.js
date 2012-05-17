@@ -16,3 +16,6 @@
 //= require_tree .
 //= require bootstrap-datepicker
 
+$(document).on("focus", "[id='asset_date_purchased']", function(e){
+    $(this).datepicker({"format": "dd-mm-yyyy", "weekStart": 1, "autoclose": true});
+});
