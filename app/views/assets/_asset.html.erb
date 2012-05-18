@@ -6,7 +6,7 @@
 	<span class="description">Description: <%= asset.asset_description %><br /></span>
 	<span class="comment"><em><%= asset.comment %></em></span>
 	<span class="timestamp">
-		<br />Added <%= time_ago_in_words(asset.created_at) %> ago. <br /> Assigned to: <%= @user.name %>
+		<br />Added <%= time_ago_in_words(asset.created_at) %> ago. <br /> Assigned to: <%= link_to 		asset.user.name, asset.user %>
 		<br />Date Purchased: <%= asset.date_purchased %> 
 	</span>
 </li>

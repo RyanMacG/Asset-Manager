@@ -19,7 +19,6 @@ class AssetsController < ApplicationController
   end
   
   def index
-    @assets = Asset.paginate(page: params[:page])
-    @user = User
+    @assets = Asset.includes(:user).paginate(page: params[:page])
   end
 end
