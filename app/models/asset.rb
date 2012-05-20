@@ -19,7 +19,7 @@ class Asset < ActiveRecord::Base
   validates :user_id, presence: true
   validates :asset_description, presence: true
   validates :asset_type, presence: true
-  validates :serial_no, presence: true
+  validates :serial_no, presence: true, uniqueness: true
   validates :status, presence: true
   validates :comment, length: { maximum: 150 }
   
