@@ -23,7 +23,7 @@ namespace :db do
     users = User.all(limit: 6)
     50.times do
       description = Faker::Lorem.sentence(1)
-      serial = "ABC123"
+      serial = "ABC#{n+1}"
       status = "allocated"
       type   = "laptop"
       date   = "15/05/12"

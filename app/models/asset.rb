@@ -14,7 +14,7 @@
 #  updated_at        :datetime        not null
 #
 class Asset < ActiveRecord::Base
-  attr_accessible :asset_description, :asset_type, :comment, :date_purchased, :serial_no, :status
+  attr_accessible :asset_description, :asset_type, :comment, :date_purchased, :serial_no, :status, :user_id
   belongs_to :user
   validates :user_id, presence: true
   validates :asset_description, presence: true

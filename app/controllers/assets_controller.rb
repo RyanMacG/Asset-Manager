@@ -18,6 +18,20 @@ class AssetsController < ApplicationController
     end
   end
   
+  def edit
+    @asset = Asset.find(params[:id])
+  end
+  
+  def update
+    @asset = Asset.find(params[:id])
+    if @asset.update_attributes(params[:asset])
+      flash[:success] = "Asset updates"
+      redirect_to "/assets"
+    else
+      render 'edit'
+    end
+  end
+  
   def index
     @assets = Asset.includes(:user).paginate(page: params[:page])
   end

@@ -68,4 +68,25 @@ describe "Asset pages" do
       end
     end
   end
+  
+  describe "edit page" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:asset) { FactoryGirl.create(:asset) }
+    before do
+      sign_in user
+      visit edit_asset_path(asset)
+    end
+    
+    describe "page" do
+      it { should have_selector('h1',     text: "Update the asset") }
+      it { should have_selector('title',  text: "Edit Asset") }
+    end
+    
+    describe "with invalid info" do
+      before { fill_in 'asset_asset_description', with: " " }
+      before { click_button "Save changes" }
+      
+      it { should have_content('error') }
+    end
+  end
 end

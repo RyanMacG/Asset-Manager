@@ -81,6 +81,7 @@ describe Asset do
     end
   end
   
+=begin
   describe "accessible attributes" do
     it "should not allow access to user_id" do
       expect do
@@ -88,19 +89,6 @@ describe Asset do
       end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
-end# == Schema Information
-#
-# Table name: assets
-#
-#  id                :integer         not null, primary key
-#  asset_description :string(255)
-#  asset_type        :string(255)
-#  status            :string(255)
-#  serial_no         :string(255)
-#  user_id           :integer
-#  comment           :string(255)
-#  date_purchased    :date
-#  created_at        :datetime        not null
-#  updated_at        :datetime        not null
-#
-
+  normally allowing mass assignment is the devil but we need to be able to re-assign users
+=end
+end

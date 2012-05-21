@@ -15,7 +15,7 @@ FactoryGirl.define do
     asset_description "Lorem ipsum"
     asset_type "Laptop"
     status "Allocated"
-    serial_no "TEST123"
+    sequence(:serial_no) { |n| "TEST#{n}" }
     comment "Test test test"
     date_purchased "15/05/12"
     user
