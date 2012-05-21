@@ -56,9 +56,23 @@ describe Asset do
       it { should_not be_valid }
     end
     
-    describe "blank serial number" do
-      before { @asset.serial_no = " " }
-      it { should_not be_valid }
+    describe "Serial numbers" do
+      
+      describe "when serial number is already taken" do
+        before do
+          asset_with_same_serial = @asset.dup
+          asset_with_same_serial.save
+        end
+     
+        it { should_not be_valid }
+      end
+      
+      
+      describe "blank serial number" do
+        before { @asset.serial_no = " " }
+        it { should_not be_valid }
+      end
+      
     end
     
     describe "too long a comment" do
