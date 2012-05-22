@@ -1,5 +1,6 @@
 class AssetsController < ApplicationController
   before_filter :signed_in_user
+  before_filter :admin_user, only: [:edit, :update]
   
   def create
     @asset = current_user.assets.build(params[:asset])
@@ -35,4 +36,9 @@ class AssetsController < ApplicationController
   def index
     @assets = Asset.includes(:user).paginate(page: params[:page])
   end
+  
+  private
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
 end
