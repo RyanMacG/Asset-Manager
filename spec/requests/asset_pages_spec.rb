@@ -70,7 +70,7 @@ describe "Asset pages" do
   end
   
   describe "edit page" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryGirl.create(:admin) }
     let(:asset) { FactoryGirl.create(:asset) }
     before do
       sign_in user

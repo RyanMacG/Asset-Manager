@@ -1,6 +1,11 @@
 <li>
 	<span class="id">JTC<%= asset.id %></span>
-	<span class="serial"><%= asset.serial_no %></span>
+	<span class="edit">
+		<% if current_user.admin? %>
+			<%= link_to "edit", edit_asset_path(asset) %>
+		<% end %>
+	</span>
+	<span class="serial"><%= asset.serial_no %><br /></span>
 	<span class="status">Status: <%= asset.status %></span>
 	<span class="type">Type: <%= asset.asset_type %><br/></span>
 	<span class="description">Description: <%= asset.asset_description %><br /></span>
@@ -9,7 +14,4 @@
 		<br />Added <%= time_ago_in_words(asset.created_at) %> ago. <br /> Assigned to: <%= link_to asset.user.name, asset.user %>
 		<br />Date Purchased: <%= asset.date_purchased %> 
 	</span>
-	<% if current_user.admin? %>
-		<%= link_to "edit", edit_asset_path(asset) %>
-	<% end %>
 </li>
