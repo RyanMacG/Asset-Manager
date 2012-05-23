@@ -9,6 +9,7 @@
 #  status            :string(255)
 #  serial_no         :string(255)
 #  user_id           :integer
+#  cost              :decimal(, )
 #  comment           :string(255)
 #  date_purchased    :date
 #  created_at        :datetime        not null
@@ -33,6 +34,9 @@
 		  
 		  <%= f.label :serial_no, "Serial No" %>
 		  <%= f.text_field :serial_no %>
+		  
+		  <%= f.label :cost, "Cost" %>
+		  <%= f.text_field :cost %>
 		  
 		  <%= f.label :comment, "Comments?" %>
 		  <%= f.text_field :comment %>

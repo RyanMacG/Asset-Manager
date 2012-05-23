@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20120514083618) do
     t.string   "status"
     t.string   "serial_no"
     t.integer  "user_id"
+    t.decimal  "cost"
     t.string   "comment"
     t.date     "date_purchased"
     t.datetime "created_at",        :null => false

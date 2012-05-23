@@ -19,16 +19,5 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
-    
-    users = User.all(limit: 6)
-    50.times do
-      description = Faker::Lorem.sentence(1)
-      serial = "ABC#{n+1}"
-      status = "allocated"
-      type   = "laptop"
-      date   = "15/05/12"
-      users.each { |user| user.assets.create!(asset_description: description, serial_no: serial,
-                                              status: status, asset_type: type, date_purchased: date) }
-    end
   end
 end
