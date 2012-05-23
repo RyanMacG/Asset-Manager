@@ -9,22 +9,7 @@
 #  serial_no         :string(255)
 #  user_id           :integer
 #  cost              :decimal(, )
-#  comment           :string(255)
-#  date_purchased    :date
-#  created_at        :datetime        not null
-#  updated_at        :datetime        not null
-#
-
-# == Schema Information
-#
-# Table name: assets
-#
-#  id                :integer         not null, primary key
-#  asset_description :string(255)
-#  asset_type        :string(255)
-#  status            :string(255)
-#  serial_no         :string(255)
-#  user_id           :integer
+#  barcode           :string(255)
 #  comment           :string(255)
 #  date_purchased    :date
 #  created_at        :datetime        not null
@@ -45,6 +30,8 @@ describe Asset do
   it { should respond_to(:serial_no) }
   it { should respond_to(:user) }
   it { should respond_to(:user_id) }
+  it { should respond_to(:cost) }
+  it { should respond_to(:barcode) }
   it { should respond_to(:date_purchased) }
   it { should respond_to(:comment) }
   it { should respond_to(:status) }

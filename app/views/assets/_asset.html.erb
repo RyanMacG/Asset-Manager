@@ -13,5 +13,8 @@
 	<span class="timestamp">
 		<br />Added <%= time_ago_in_words(asset.created_at) %> ago. <br /> Assigned to: <%= link_to asset.user.name, asset.user %>
 		<br />Date Purchased: <%= asset.date_purchased %> 
+		<% if current_user.admin? %>
+			<br />Cost: <%= number_to_currency(asset.cost, :unit => '£') %>
+		<% end %>
 	</span>
 </li>

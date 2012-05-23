@@ -10,6 +10,7 @@
 #  serial_no         :string(255)
 #  user_id           :integer
 #  cost              :decimal(, )
+#  barcode           :string(255)
 #  comment           :string(255)
 #  date_purchased    :date
 #  created_at        :datetime        not null
@@ -37,6 +38,9 @@
 		  
 		  <%= f.label :cost, "Cost" %>
 		  <%= f.text_field :cost %>
+		  
+		  <%= f.label :barcode, "Barcode:" %>
+		  <%= f.text_field :barcode %>
 		  
 		  <%= f.label :comment, "Comments?" %>
 		  <%= f.text_field :comment %>
