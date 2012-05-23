@@ -35,7 +35,5 @@ describe "Static Pages" do
       page.should have_selector 'title', text: full_title('About')
       click_link "Help"
       page.should have_selector 'title', text: full_title('Help')
-      click_link "Home"
-      page.should have_selector 'title', text: full_title('Home')
    end
 end
