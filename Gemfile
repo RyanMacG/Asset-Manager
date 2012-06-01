@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 #Gems that are required in any environment, by defining the version of the gem we want to use
 #we don't have to worry about updates causing unexpected issues.
-gem 'rails', '3.2.4'
+gem 'rails', '3.2.5'
 gem 'bootstrap-sass', '2.0.0'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '>= 2.0.0'
