@@ -13,18 +13,16 @@ class AssetsController < ApplicationController
   end
   
   def show
-    if signed_in?
-      @asset      = current_user.assets.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
-      respond_to do |format|
-        format.html
-        format.pdf do
-          @asset_pdf  = Asset.find(params[:id])
-          pdf = AssetPdf.new(@asset_pdf)
-          send_data pdf.render, filename: "asset_#{@asset_pdf.id}.pdf",
-                                          type: "application/pdf",
-                                          disposition: "inline"
-        end
+    @asset      = current_user.assets.build
+    @feed_items = current_user.feed.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        @asset_pdf  = Asset.find(params[:id])
+        pdf = AssetPdf.new(@asset_pdf)
+        send_data pdf.render, filename: "asset_#{@asset_pdf.id}.pdf",
+                                        type: "application/pdf",
+                                        disposition: "inline"
       end
     end
   end
