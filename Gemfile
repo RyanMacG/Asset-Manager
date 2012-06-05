@@ -12,9 +12,9 @@ gem 'bootstrap-will_paginate', "0.0.5"
 gem 'heroku'
 gem 'bootstrap-datepicker-rails'
 gem 'prawn'
+gem 'pg'
 
 group :development, :test do
-	gem 'sqlite3', '1.3.5'
 	gem 'rspec-rails', '2.9.0'
   gem 'guard-rspec', '0.5.5' 
   gem 'annotate', '~> 2.4.1.beta'
@@ -40,6 +40,3 @@ group :test do
   gem 'database_cleaner', '0.7.0'
 end
 
-group :production do
-  gem 'pg', '0.12.2'
-end
