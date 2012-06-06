@@ -25,6 +25,19 @@ class Asset < ActiveRecord::Base
   validates  :status, presence: true
   validates  :comment, length: { maximum: 150 }
   
+  include PgSearch
+  pg_search_scope :search, against: [:asset_description, :status, :asset_type, :comment, :cost, :date_purchased, :serial_no],
+  		using: {tsearch: { dictionary: "english" }},
+		associated_against: { user: :name }
+  
   #older assets first
   default_scope order: 'assets.created_at ASC'
+  
+  def self.text_search(query)
+    if query.present?
+		search(query)
+    else
+      scoped 
+    end
+  end
 end

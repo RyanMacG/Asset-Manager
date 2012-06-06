@@ -41,6 +41,10 @@ class AssetsController < ApplicationController
     end
   end
   
+  def search
+    @assets = Asset.text_search(params[:query]).page(params[:page]).per_page(10)
+  end
+  
   def index
     @assets = Asset.includes(:user).paginate(page: params[:page])
   end

@@ -120,6 +120,9 @@ GEM
       Ascii85 (~> 1.0.0)
       ruby-rc4
     pg (0.12.2)
+    pg_search (0.5)
+      activerecord (>= 3)
+      activesupport (>= 3)
     polyglot (0.3.3)
     prawn (0.12.0)
       pdf-reader (>= 0.9.0)
@@ -218,6 +221,7 @@ DEPENDENCIES
   heroku
   jquery-rails (>= 2.0.0)
   pg
+  pg_search
   prawn
   rails (= 3.2.5)
   rb-fsevent (= 0.9.1)

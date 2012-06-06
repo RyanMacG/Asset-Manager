@@ -13,6 +13,7 @@ gem 'heroku'
 gem 'bootstrap-datepicker-rails'
 gem 'prawn'
 gem 'pg'
+gem 'pg_search'
 
 group :development, :test do
 	gem 'rspec-rails', '2.9.0'
@@ -39,4 +40,3 @@ group :test do
   gem 'cucumber-rails', '1.2.1', require: false
   gem 'database_cleaner', '0.7.0'
 end
-
