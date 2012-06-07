@@ -88,5 +88,21 @@ describe "Asset pages" do
       
       it { should have_content('error') }
     end
+    
+    describe "with valid info" do
+			before { fill_in 'asset_asset_description', with: "Valid Info" }
+			before { click_button "Save changes" }
+			
+			it { should have_selector('title', text: 'Assets') }
+    end
+  end
+  
+  describe "search page" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:asset) { FactoryGirl.create(:asset) }
+    before do
+      sign_in user
+      visit search_path
+    end
   end
 end

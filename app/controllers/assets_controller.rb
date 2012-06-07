@@ -5,8 +5,8 @@ class AssetsController < ApplicationController
   def create
     @asset = current_user.assets.build(params[:asset])
     if @asset.save
-      flash[:success] = "Asset created!"
       redirect_to root_path
+      flash.now[:success] = "Asset created!"
     else
       render 'static_pages/home'
     end
@@ -34,8 +34,8 @@ class AssetsController < ApplicationController
   def update
     @asset = Asset.find(params[:id])
     if @asset.update_attributes(params[:asset])
-      flash[:success] = "Asset updates"
-      redirect_to "/assets"
+      flash[:notice] = "Profile updated"
+      redirect_to assets_path
     else
       render 'edit'
     end
