@@ -27,15 +27,15 @@ class Asset < ActiveRecord::Base
   
   include PgSearch
   pg_search_scope :search, against: [:asset_description, :status, :asset_type, :comment, :cost, :date_purchased, :serial_no],
-  		using: {tsearch: { dictionary: "english" }},
-		associated_against: { user: :name }
+      using: {tsearch: { dictionary: "english" }},
+      associated_against: { user: :name }
   
   #older assets first
   default_scope order: 'assets.created_at ASC'
   
   def self.text_search(query)
     if query.present?
-		search(query)
+      search(query)
     else
       scoped 
     end
