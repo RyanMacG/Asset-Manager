@@ -1,10 +1,8 @@
-def full_title(page_title)
-   base_title = "Asset Manager"
-   if page_title.empty?
-      base_title
-   else
-      "#{base_title} | #{page_title}"
-   end
+include ApplicationHelper
+
+shared_examples_for "all pages" do
+  it { should have_selector('h1', text: heading) }
+  it { should have_selector('title', text: full_title(page_title)) }
 end
 
 def sign_in(user)

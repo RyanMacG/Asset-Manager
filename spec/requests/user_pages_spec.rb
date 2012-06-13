@@ -6,13 +6,15 @@ describe "User pages" do
    
    describe "index" do
      let(:user) { FactoryGirl.create(:user) }
+     let(:page_title) { 'All users' }
+     let(:heading) { 'All users' }
      
      before do
        sign_in user
        visit users_path
      end
      
-     it { should have_selector('title', text: 'All users') }
+     it_should_behave_like "all pages"
      
      describe "pagination" do
        before(:all) { 30.times { FactoryGirl.create(:user) } }
