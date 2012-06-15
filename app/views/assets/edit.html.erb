@@ -20,38 +20,39 @@
 <h1>Update the asset</h1>
 
 <div class="row">
-	<div class="span6 offset3">
-		<%= form_for(@asset) do |f| %>
-		  <%= render 'shared/error_messages', object: f.object %>
-		  
-		  <%= f.label :asset_description, "Description" %>
-		  <%= f.text_field :asset_description %>
-		  
-		  <%= f.label :asset_type, "Asset Type" %>
-		  <%= f.text_field :asset_type %>
-		  
-		  <%= f.label :status, "Status" %>
-		  <%= f.text_field :status, placeholder: "Allocated/stock/written off" %>
-		  
-		  <%= f.label :serial_no, "Serial No" %>
-		  <%= f.text_field :serial_no %>
-		  
-		  <%= f.label :cost, "Cost" %>
-		  <%= f.text_field :cost %>
-		  
-		  <%= f.label :barcode, "Barcode:" %>
-		  <%= f.text_field :barcode %>
-		  
-		  <%= f.label :comment, "Comments?" %>
-		  <%= f.text_field :comment %>
-		  
-		  <%= f.label :date_purchased, "Date Purchased:" %>
-		  <%= f.text_field :date_purchased, :format => :default %>
-		   
-		   <%= f.label :user_id, "Allocated to" %>  
-		  <%= collection_select(:asset, :user_id, User.all, :id, :name, :prompt => true) %>
-		  
-		  <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-		<% end %>
-	</div>
+  <div class="span6 offset3">
+      <%= form_for(@asset) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :asset_description, "Description" %>
+      <%= f.text_field :asset_description %>
+
+      <%= f.label :asset_type, "Asset Type" %>
+      <%= f.text_field :asset_type %>
+
+      <%= f.label :status, "Status" %>
+      <%= f.text_field :status, placeholder: "Allocated/stock/written off" %>
+
+      <%= f.label :serial_no, "Serial No" %>
+      <%= f.text_field :serial_no %>
+
+      <%= f.label :cost, "Cost" %>
+      <%= f.text_field :cost %>
+
+      <i class="icon-barcode"></i>
+      <%= f.label :barcode, "Barcode:" %>
+      <%= f.text_field :barcode %>
+
+      <%= f.label :comment, "Comments?" %>
+      <%= f.text_field :comment %>
+
+      <%= f.label :date_purchased, "Date Purchased:" %>
+      <%= f.text_field :date_purchased, :format => :default %>
+
+      <%= f.label :user_id, "Allocated to" %>  
+      <%= collection_select(:asset, :user_id, User.all, :id, :name, :prompt => true) %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
 </div>

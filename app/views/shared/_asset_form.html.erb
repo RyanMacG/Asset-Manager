@@ -1,18 +1,23 @@
 <%= form_for (@asset) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-  	<%= f.label :asset_description, "Asset Description:" %>
-	<%= f.text_field :asset_description, placeholder: "Insert asset description..." %>
-	<%= f.label :asset_type, "Asset Type: (Mobile/Laptop/etc)" %>
-	<%= f.text_field :asset_type, 		 placeholder: "Mobile/Laptop/Computer...?" %>
-	<%= f.label :serial_no, "Serial No:" %>
-	<%= f.text_field :serial_no,  		 placeholder: "Insert the serial number"%>
-	<%= f.label :status, "Asset Status: (Allocated/stock/written off)" %>
-	<%= f.text_field :status, 			 placeholder: "Allocated/stock/written off"%>
-	<%= f.label :comment, "Comments:" %>
-	<%= f.text_field :comment, 			 placeholder: "Any comments?" %>
-	<%= f.label :date_purchased, "Date Purchased:" %>
-	<%= f.text_field :date_purchased,	 placeholder: "Date Purchased"%>
+    <%= f.label :asset_description, "Asset Description:" %>
+    <%= f.text_field :asset_description, placeholder: "Insert asset description..." %>
+    
+    <%= f.label :asset_type, "Asset Type: (Mobile/Laptop/etc)" %>
+    <%= f.text_field :asset_type, placeholder: "Mobile/Laptop/Computer...?" %>
+    
+    <%= f.label :serial_no, "Serial No:" %>
+    <%= f.text_field :serial_no, placeholder: "Insert the serial number"%>
+    
+    <%= f.label :status, "Asset Status: (Allocated/stock/written off)" %>
+    <%= f.text_field :status, placeholder: "Allocated/stock/written off"%>
+    
+    <%= f.label :comment, "Comments:" %>
+    <%= f.text_field :comment, placeholder: "Any comments?" %>
+    
+    <%= f.label :date_purchased, "Date Purchased:" %>
+    <%= f.text_field :date_purchased, placeholder: "Date Purchased"%>
   </div>
   <%= f.submit "Add", class: "btn btn-large btn-primary" %>
 <% end %>
