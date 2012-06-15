@@ -72,14 +72,17 @@ describe "Asset pages" do
   describe "edit page" do
     let(:user) { FactoryGirl.create(:admin) }
     let(:asset) { FactoryGirl.create(:asset) }
+    
     before do
       sign_in user
       visit edit_asset_path(asset)
     end
     
     describe "page" do
-      it { should have_selector('h1',     text: "Update the asset") }
-      it { should have_selector('title',  text: "Edit Asset") }
+      let(:heading) { 'Update the asset' }
+      let(:page_title) { 'Edit Asset' }
+      
+      it_should_behave_like "all pages"
     end
     
     describe "with invalid info" do
@@ -90,16 +93,21 @@ describe "Asset pages" do
     end
     
     describe "with valid info" do
-			before { fill_in 'asset_asset_description', with: "Valid Info" }
-			before { click_button "Save changes" }
-			
-			it { should have_selector('title', text: 'Assets') }
+      before { fill_in 'asset_asset_description', with: "Valid Info" }
+      before { click_button "Save changes" }
+
+      it { should have_selector('title', text: 'Assets') }
     end
   end
   
   describe "search page" do
     let(:user) { FactoryGirl.create(:user) }
     let(:asset) { FactoryGirl.create(:asset) }
+    
+    let(:heading) { 'Search' }
+    let(:page_title) { 'Search' }
+    
+    it_should_behave_like "all pages"
     before do
       sign_in user
       visit search_path

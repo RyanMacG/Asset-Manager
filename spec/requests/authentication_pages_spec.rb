@@ -6,8 +6,10 @@ describe "Authentication" do
   describe "with valid information" do
     let(:user) { FactoryGirl.create(:user) }
     before { sign_in user }
+    let(:page_title) { user.name }
+    let(:heading) { user.name }
     
-    it { should have_selector('title', text: user.name) }
+    it_should_behave_like "all pages"
     
     it { should have_link('Users',    href: users_path) }
     it { should have_link('Me',       href: user_path(user)) }
@@ -22,8 +24,10 @@ describe "Authentication" do
     
     describe "with invalid info" do
       before { click_button "Sign in" }
+      let(:page_title) { 'Sign in' }
+      let(:heading) { 'Sign in' }
       
-      it { should have_selector('title', text: 'Sign in') }
+      it_should_behave_like "all pages"
       it { should have_selector('div.alert.alert-error', text: 'Invalid') }
       
       describe "after visiting another page" do
@@ -32,21 +36,6 @@ describe "Authentication" do
       end
     end
     
-    describe "with valid information" do
-      let(:user) { FactoryGirl.create(:user) }
-      before { sign_in user }
-      
-      it { should have_selector('title',   text: user.name) }
-      it { should have_link('Me',          href: user_path(user)) }
-      it { should have_link('Settings',    href: edit_user_path(user)) }
-      it { should have_link('Sign out',    href: signout_path) }
-      it { should_not have_link('Sign in', href: signin_path) }
-      
-      describe "followed by signout" do
-        before { click_link "Sign out" }
-        it { should have_link('Sign in') }
-      end
-    end
   end
   
   describe "authorization" do

@@ -53,11 +53,11 @@ describe "User pages" do
    
    describe "signup page" do
       before { visit signup_path }
+      let(:heading) { 'Sign up' }
+      let(:page_title) { 'Sign Up' }
       
       let(:submit) { "Create my account" }
-      
-      it { should have_selector('h1',    text: 'Sign up') }
-      it { should have_selector('title', text: full_title('Sign Up')) }
+      it_should_behave_like "all pages"
       
       describe "with invalid information" do
         it "should not create a user" do
@@ -88,6 +88,10 @@ describe "User pages" do
       
    describe "edit" do
      let(:user) { FactoryGirl.create(:user) }
+     let(:heading) { 'Update your details' }
+     let(:page_title) { 'Edit' }
+     
+     it_should_behave_like "all pages"
      before do
        sign_in user
        visit edit_user_path(user)
@@ -105,7 +109,6 @@ describe "User pages" do
          click_button "Save changes"
        end
        
-       it { should have_selector('title', text: new_name) }
        it { should have_selector('div.alert.alert-success') }
        it { should have_link('Sign out', href: signout_path) }
        specify { user.reload.name.should  == new_name }
