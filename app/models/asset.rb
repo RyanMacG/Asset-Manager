@@ -16,7 +16,7 @@
 #  updated_at        :datetime        not null
 #
 class Asset < ActiveRecord::Base
-  attr_accessible :asset_description, :asset_type, :comment, :date_purchased, :serial_no, :status, :user_id, :cost, :barcode
+  attr_accessible :asset_description, :asset_type, :comment, :date_purchased, :serial_no, :status, :user_id, :cost, :barcode, :image
   belongs_to :user
   validates  :user_id, presence: true
   validates  :asset_description, presence: true
@@ -24,6 +24,8 @@ class Asset < ActiveRecord::Base
   validates  :serial_no, presence: true, uniqueness: true
   validates  :status, presence: true
   validates  :comment, length: { maximum: 150 }
+  
+  mount_uploader :image, ImageUploader
   
   include PgSearch
   pg_search_scope :search, against: [:asset_description, :status, :asset_type, :comment, :cost, :serial_no, :date_purchased],

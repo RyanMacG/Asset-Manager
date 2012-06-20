@@ -18,6 +18,9 @@
     
     <%= f.label :date_purchased, "Date Purchased:" %>
     <%= f.text_field :date_purchased, placeholder: "Date Purchased"%>
+    
+    <%= f.label :image, "Image" %>
+    <%= f.file_field :image %>
   </div>
   <%= f.submit "Add", class: "btn btn-primary", id: "ass_sub" %>
 <% end %>

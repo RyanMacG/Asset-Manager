@@ -1,5 +1,5 @@
 <li>
-  <span class="id">JTC<%= asset.id %></span>
+  <span class="id"><%= link_to "JTC#{asset.id}", asset %></span>
   <span class="edit">
     <% if current_user.admin? %>
       <%= link_to "edit", edit_asset_path(asset) %>

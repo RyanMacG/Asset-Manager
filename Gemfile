@@ -14,6 +14,10 @@ gem 'bootstrap-datepicker-rails'
 gem 'prawn'
 gem 'pg'
 gem 'pg_search'
+gem 'carrierwave'
+
+#remember to install imagemagick or this gem won't work!
+gem 'rmagick'
 
 group :development, :test do
 	gem 'rspec-rails', '2.9.0'

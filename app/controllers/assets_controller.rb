@@ -13,8 +13,7 @@ class AssetsController < ApplicationController
   end
   
   def show
-    @asset      = current_user.assets.build
-    @feed_items = current_user.feed.paginate(page: params[:page])
+    @asset = Asset.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do

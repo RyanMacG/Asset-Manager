@@ -1,19 +1,17 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-	<aside class="span7">
-		<section>
-			<h1>
-				<h1><%= @user.name %>,<br /> <%= @user.email %></h1>
-			</h1>
-		</section>
-	</aside>
-	<div class="span12">
-		<% if @user.assets.any? %>
-			<h3>Assets (<%= @user.assets.count %>)</h3>
-			<ol class="assets">
-				<%= render @asset %>
-			</ol>
-			<%= will_paginate @asset %>
-		<% end %>
-	</div>
+  <aside class="span7">
+    <section>
+      <h1><%= @user.name %>,<br /> <%= @user.email %></h1>
+    </section>
+  </aside>
+  <div class="span12">
+    <% if @user.assets.any? %>
+      <h3>Assets (<%= @user.assets.count %>)</h3>
+      <ol class="assets">
+        <%= render @asset %>
+      </ol>
+      <%= will_paginate @asset %>
+    <% end %>
+  </div>
 </div>
