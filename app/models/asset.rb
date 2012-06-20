@@ -26,7 +26,7 @@ class Asset < ActiveRecord::Base
   validates  :comment, length: { maximum: 150 }
   
   include PgSearch
-  pg_search_scope :search, against: [:asset_description, :status, :asset_type, :comment, :cost, :date_purchased, :serial_no],
+  pg_search_scope :search, against: [:asset_description, :status, :asset_type, :comment, :cost, :serial_no, :date_purchased],
       using: {tsearch: { dictionary: "english" }},
       associated_against: { user: :name }
   
