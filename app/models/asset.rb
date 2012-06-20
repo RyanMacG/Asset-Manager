@@ -29,7 +29,7 @@ class Asset < ActiveRecord::Base
   
   include PgSearch
   pg_search_scope :search, against: [:asset_description, :status, :asset_type, :comment, :cost, :serial_no, :date_purchased],
-      using: {tsearch: { dictionary: "english" }},
+      using: {tsearch: { dictionary: "english", prefix: true }},
       associated_against: { user: :name }
   
   #older assets first
