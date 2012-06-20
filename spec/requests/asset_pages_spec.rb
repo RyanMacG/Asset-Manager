@@ -51,22 +51,16 @@ describe "Asset pages" do
   end
   
   describe "show page" do
-    describe "for signed-in users" do
-      let(:user) { FactoryGirl.create(:user) }
-      
-      before do
-        FactoryGirl.create(:asset, user: user)
-        FactoryGirl.create(:asset, user: user)
-        sign_in user
-        visit '/assets/show'
-      end
-      
-      it "should render the user feed" do
-        user.feed.each do |item|
-          page.should have_selector("li##{item.id}", text: item.asset_description)
-        end
-      end
+    let(:asset) { FactoryGirl.create(:asset) }
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in user
+      visit asset_path(asset)
     end
+    let(:page_title) { "Asset #{asset.id}" }
+    let(:heading) { "JTC#{asset.id}" }
+    
+    it_should_behave_like "all pages"
   end
   
   describe "edit page" do
@@ -96,7 +90,7 @@ describe "Asset pages" do
       before { fill_in 'asset_asset_description', with: "Valid Info" }
       before { click_button "Save changes" }
 
-      it { should have_selector('title', text: 'Assets') }
+      it { should have_selector('title', text: "Asset #{asset.id}") }
     end
   end
   
