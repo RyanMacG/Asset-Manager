@@ -24,6 +24,8 @@ class AssetPdf
     asset_user
     purchase_deets
     blank_line
+    image_blurb
+    image
     render
   end
   
@@ -44,11 +46,23 @@ class AssetPdf
   end
   
   def serial
-    @pdf.text "For reference the Serial No/IMEI is"
+    @pdf.text "For reference the Serial No/IMEI is #{@asset.serial_no}"
   end
   
   def blank_line
     @pdf.text " "
+  end
+  
+  def image_blurb
+    if @asset.image?
+      @pdf.text "The following image has been attached"
+    end
+  end
+  
+  def image
+    if @asset.image?
+      @pdf.image open("public#{@asset.image.url.to_s}")
+    end
   end
   
   def render
