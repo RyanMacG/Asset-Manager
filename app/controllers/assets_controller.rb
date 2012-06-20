@@ -34,7 +34,7 @@ class AssetsController < ApplicationController
     @asset = Asset.find(params[:id])
     if @asset.update_attributes(params[:asset])
       flash[:notice] = "Profile updated"
-      redirect_to assets_path
+      redirect_to @asset
     else
       render 'edit'
     end
