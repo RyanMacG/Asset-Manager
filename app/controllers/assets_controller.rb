@@ -17,11 +17,10 @@ class AssetsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        @asset_pdf  = Asset.find(params[:id])
-        pdf = AssetPdf.new(@asset_pdf)
-        send_data pdf.render, filename: "asset_#{@asset_pdf.id}.pdf",
-                                        type: "application/pdf",
-                                        disposition: "inline"
+        pdf = AssetPdf.new(@asset)
+        send_data pdf.render, filename:    "asset_#{@asset.id}.pdf",
+                              type:        "application/pdf",
+                              disposition: "inline"
       end
     end
   end
@@ -46,6 +45,10 @@ class AssetsController < ApplicationController
   
   def index
     @assets = Asset.includes(:user).paginate(page: params[:page])
+  end
+  
+  def last_30_days
+    @assets = Asset.where("updated_at >= ?", 30.days.ago).page(params[:page]).per_page(10)
   end
   
   private

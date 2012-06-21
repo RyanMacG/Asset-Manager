@@ -94,6 +94,24 @@ describe "Asset pages" do
     end
   end
   
+  describe "report pages" do
+    let(:asset)  { FactoryGirl.create(:asset) }
+    let(:user)   { FactoryGirl.create(:user) }
+    
+    describe "last 30 days" do
+      before do
+        sign_in user
+        visit last_month_path
+      end
+      let(:heading) { "Updated in the last month" }
+      let(:page_title) { "Last Month" }
+      
+      it { should have_selector('a', href: "/assets/#{asset.id}") }
+      
+      it_should_behave_like "all pages"
+    end
+  end
+  
   describe "search page" do
     let(:user) { FactoryGirl.create(:user) }
     let(:asset) { FactoryGirl.create(:asset) }

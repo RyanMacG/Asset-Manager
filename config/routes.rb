@@ -12,6 +12,7 @@ AssetManager::Application.routes.draw do
    match '/about',   to: 'static_pages#about'
    match '/help',    to: 'static_pages#help'
    match '/search',  to: 'assets#search'
+   match '/last_month', to: 'assets#last_30_days'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
