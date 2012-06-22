@@ -11,10 +11,19 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "Add an Asset", root_path %></li>
-              <li><%= link_to "Asset List", assets_path %></li>
+              <li><%= link_to "Asset List",   assets_path %></li>
               <li><%= link_to "Asset Search", search_path %></li>
             </ul>
             </li>
+            <% if current_user.admin? %>
+              <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Reports <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Last Month", last_month_path %></li>
+              </ul>
+            <% end %>
             <li><%= link_to "Users", users_path %></li>
             <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
