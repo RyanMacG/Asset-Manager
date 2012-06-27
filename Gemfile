@@ -9,15 +9,15 @@ gem 'jquery-rails', '>= 2.0.0'
 gem 'faker', '1.0.1'
 gem 'will_paginate', "3.0.3"
 gem 'bootstrap-will_paginate', "0.0.5"
-gem 'heroku'
+gem 'heroku' #for deploying to heroku for production testing
 gem 'bootstrap-datepicker-rails'
-gem 'prawn'
-gem 'pg'
-gem 'pg_search'
-gem 'carrierwave'
+gem 'prawn' #pdf generation
+gem 'pg' #db
+gem 'pg_search' #text search on db
+gem 'carrierwave' #image uploading
 
-#remember to install imagemagick or this gem won't work!
-gem 'rmagick'
+#remember to install imagemagick or this won't work!
+gem 'rmagick' #for carrierwave thumbnail resizing
 
 group :development, :test do
 	gem 'rspec-rails', '2.9.0'
