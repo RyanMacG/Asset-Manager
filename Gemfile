@@ -15,6 +15,7 @@ gem 'prawn' #pdf generation
 gem 'pg' #db
 gem 'pg_search' #text search on db
 gem 'carrierwave' #image uploading
+gem 'delayed_job_active_record' #for background jobs
 
 #remember to install imagemagick or this won't work!
 gem 'rmagick' #for carrierwave thumbnail resizing

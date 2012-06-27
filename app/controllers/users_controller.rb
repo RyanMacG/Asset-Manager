@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      UserMailer.signup_confirmation(@user).deliver
+      UserMailer.delay.signup_confirmation(@user)
       sign_in @user
       flash[:success] = "Welcome to the JTC Asset Manager"
       redirect_to @user
