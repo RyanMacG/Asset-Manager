@@ -67,6 +67,7 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.3)
       nokogiri (>= 1.5.0)
+    daemons (1.1.8)
     database_cleaner (0.7.0)
     delayed_job (3.0.3)
       activesupport (~> 3.0)
@@ -230,6 +231,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (= 3.2.2)
   cucumber-rails (= 1.2.1)
+  daemons
   database_cleaner (= 0.7.0)
   delayed_job_active_record
   factory_girl_rails (= 1.4.0)
