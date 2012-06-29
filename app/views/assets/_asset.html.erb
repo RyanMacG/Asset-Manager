@@ -10,7 +10,7 @@
   <span class="type">Type: <%= asset.asset_type %><br/></span>
   <span class="description">Description: <%= asset.asset_description %><br /></span>
   <span class="comment"><em><%= asset.comment %></em></span>
-  <span class="timestamp">
+  <span class="misc">
     <br />Added <%= time_ago_in_words(asset.created_at) %> ago. <br /> Assigned to: <%= link_to asset.user.name, asset.user %>
     <br />Date Purchased: <%= asset.date_purchased %> 
     <% if current_user.admin? %>

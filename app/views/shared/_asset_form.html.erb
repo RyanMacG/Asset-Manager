@@ -11,7 +11,7 @@
     <%= f.text_field :serial_no, placeholder: "Insert the serial number"%>
     
     <%= f.label :status, "Asset Status: (Allocated/stock/written off)" %>
-    <%= f.text_field :status, placeholder: "Allocated/stock/written off"%>
+    <%= f.select :status, options_for_select([["Allocated"], ["Stock"], ["Written Off"]]) %>
     
     <%= f.label :comment, "Comments:" %>
     <%= f.text_field :comment, placeholder: "Any comments?" %>
