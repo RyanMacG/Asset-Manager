@@ -1,10 +1,10 @@
 <li>
   <span class="id"><%= link_to "JTC#{asset.id}", asset %></span>
-  <span class="edit">
+  <div class="edit">
     <% if current_user.admin? %>
-      <%= link_to "edit", edit_asset_path(asset) %>
+      <%= link_to "edit", edit_asset_path(asset), class: "btn btn-small" %>
     <% end %>
-  </span>
+  </div>
   <span class="serial"><%= asset.serial_no %><br /></span>
   <span class="status">Status: <%= asset.status %></span>
   <span class="type">Type: <%= asset.asset_type %><br/></span>
