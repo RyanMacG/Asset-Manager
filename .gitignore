@@ -17,3 +17,5 @@ public/uploads/
 .DS_Store
 bundler_stubs/
 .tm_properties
+
+/config/database.yml
