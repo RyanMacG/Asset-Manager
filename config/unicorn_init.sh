@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 
-# Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
 APP_ROOT=/home/deployer/apps/Asset-Manager/current
 PID=$APP_ROOT/tmp/pids/unicorn.pid
