@@ -18,6 +18,10 @@ gem 'carrierwave' #image uploading
 gem 'delayed_job_active_record' #for background jobs
 gem 'daemons' #for starting delayed_jobs
 
+#deployment!
+gem 'unicorn' #app server
+gem 'capistrano' #deployer
+
 #remember to install imagemagick or this won't work!
 gem 'rmagick' #for carrierwave thumbnail resizing
 
