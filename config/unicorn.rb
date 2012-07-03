@@ -1,9 +1,9 @@
-root =  "/home/deployer/apps/ass_man/current"
+root =  "/home/deployer/apps/Asset-Manager/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
 
-listen "/tmp/unicorn.ass_man.sock"
+listen "/tmp/unicorn.Asset-Manager.sock"
 worker_processes 2
 timeout 30
