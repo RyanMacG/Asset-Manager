@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: asset_development
+  pool: 5
+  host: localhost
+  username: ryanmacg
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: asset_test
+  pool: 5
+  host: localhost
+  username: ryanmacg
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: asset_production
+  pool: 5
+  host: localhost
+  username: itadmin
+  password: Stephan13
