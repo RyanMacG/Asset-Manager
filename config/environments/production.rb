@@ -50,6 +50,16 @@ AssetManager::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  
+  config.action_mailer.default_url_options = { host: "caffeinecoding.com" }
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "jtc-exch1.jtc65.jtc65.co.uk",
+    port: 25,
+    authentication: "none"
+  }
+  
 
   # Enable threaded mode
   # config.threadsafe!
