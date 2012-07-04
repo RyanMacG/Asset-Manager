@@ -53,3 +53,11 @@ namespace :deploy do
   end
   before "deploy", "deploy:check_revision"
 end
+
+namespace :db do
+  desc "Resets the Production Database"
+  task :migrate_reset do
+    puts "\n\n=== Resetting the Production Database! ===\n\n"
+    run "cd #{current_path}; rake db:migrate:reset RAILS_ENV=production"
+  end
+end
