@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 require "delayed/recipes"
 
-server "82.165.16.126", :web, :app, :db, primary: true
+server "172.16.0.120", :web, :app, :db, primary: true
 
 set :application, "Asset-Manager"
 set :user, "deployer"
