@@ -4,5 +4,5 @@ production:
   database: asset_production
   pool: 5
   host: localhost
-  username: itadmin
-  password: ITadm1n
+  username: #Fill these in
+  password: #Fill these in
