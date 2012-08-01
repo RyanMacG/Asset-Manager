@@ -17,5 +17,4 @@ public/uploads/
 .DS_Store
 bundler_stubs/
 .tm_properties
-Gemfile.lock
 /config/database.yml
