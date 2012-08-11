@@ -27,7 +27,7 @@ describe "Asset pages" do
     describe "with invalid information" do
       
       it "should not create an asset" do
-        expect { click_button "Add" }.should_not change(Asset, :count)
+        expect { click_button "Add" }.to_not change(Asset, :count)
       end
       
       describe "error messages" do
@@ -41,11 +41,10 @@ describe "Asset pages" do
       before { fill_in 'asset_asset_description', with: "blahblahblah" }
       before { fill_in 'asset_asset_type',        with: "Computer" }
       before { fill_in 'asset_serial_no',         with: "HERP123" }
-      before { fill_in 'asset_status',            with: "Allocated" }
       before { fill_in 'asset_comment',           with: "Test comment bro"}
       
       it "should create an asset" do
-        expect { click_button "Add" }.should change(Asset, :count).by(1)
+        expect { click_button "Add" }.to change(Asset, :count).by(1)
       end
     end
   end
