@@ -1,6 +1,9 @@
 require "bundler/capistrano"
 require "delayed/recipes"
 
+load "config/recipes/base"
+load "config/recipes/nginx"
+
 server "172.16.0.120", :web, :app, :db, primary: true
 
 set :application, "Asset-Manager"

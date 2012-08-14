@@ -1,0 +1,8 @@
+upstream unicorn {
+  server unix:/tmp/unicorn.<%= application %>.sock fail_timeout=0;
+}
+
+server {
+  listen 80 default deferred;
+  root <%= current_path %>/public
+}
