@@ -28,7 +28,7 @@ class Asset < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   
   include PgSearch
-  pg_search_scope :search, against: [:asset_description, :status, :asset_type, :comment, :cost, :serial_no, :date_purchased],
+  pg_search_scope :search, against: [:asset_description, :status, :asset_type, :comment, :serial_no],
       using: {tsearch: { dictionary: "english", prefix: true }},
       associated_against: { user: :name }
   
