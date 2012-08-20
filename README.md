@@ -2,6 +2,6 @@
 
 Currently this is only for my usage
 
-To stop the mailer blocking user interaction during signup make sure that when the app is started on the server the command "script/delayed_jobs start" is run from the applications root directory.
+If there are issues with the signup mailer blocking users run the following from deployment server using "cap delayed_job:start", ":stop" and ":restart" are also valid commands
 
-Alternitavely it can be run from the deployment server using cap delayed_job:start, :stop and :restart are also valid commands
+To take the app down for maintenance run "cap deploy:web:disable" and to bring it back up run "cap deploy:web:enable"
