@@ -1,6 +1,6 @@
 <li>
   <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
+  <% if current_user.admin? && !current_user?(user) && !user.admin? %>
   <%= link_to "delete", user, method: :delete,  :data => 
     { :confirm => 'Really? Make sure all assets have been re-assigned!' }, 
     class: "btn btn-danger btn-small", id: "del_btn" %>
