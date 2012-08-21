@@ -16,8 +16,11 @@ namespace :monit do
   end
   after "deploy:setup", "monit:setup"
   
+  desc "only setup nginx"
   task(:nginx, roles: :web) { monit_config "nginx" }
+  desc "only setup pgsql"
   task(:postgresql, roles: :db) { monit_config "postgresql" }
+  desc "only setup unicorn"
   task(:unicorn, roles: :app) { monit_config "unicorn" }
   
   %w[start stop restart syntax reload].each do |command|
