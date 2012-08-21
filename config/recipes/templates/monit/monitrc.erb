@@ -7,13 +7,6 @@ set statefile /var/lib/monit/state
 set eventqueue
     basedir /var/lib/monit/events
     slots 100
-    
-set mailserver mailgate.jtcfurnituregroup.com port 25
-  username "itadmin" password "ITadm1n"
-  using SSLv3
-  with timeout 30 seconds
-  
-set alert ryan.macgillivray@jtcfurnituregroup.com
 
 set httpd port 582
     allow admin:"Stephan13"
