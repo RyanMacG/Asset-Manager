@@ -27,8 +27,6 @@ class User < ActiveRecord::Base
              
    validates_presence_of :password, length: { minimum: 6 }, on: :create
    validates_presence_of :password_confirmation, presence: true, on: :create
-   validates_presence_of :password, length: { minimum: 6 }, on: :update
-   validates_presence_of :password_confirmation, presence: true, on: :update
    
    def feed
      Asset.where("user_id = ?", id)

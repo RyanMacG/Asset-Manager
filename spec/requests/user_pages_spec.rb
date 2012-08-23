@@ -102,10 +102,8 @@ describe "User pages" do
        let(:new_email) { "new@example.com" }
        
        before do
-         fill_in "Name",             with: new_name
-         fill_in "Email",            with: new_email
-         fill_in "Password",         with: user.password
-         fill_in "Confirm Password", with: user.password
+         fill_in "Name",  with: new_name
+         fill_in "Email", with: new_email
          click_button "Save changes"
        end
        
@@ -121,8 +119,11 @@ describe "User pages" do
      end
      
      describe "with invalid info" do
-       before { click_button "Save changes" }
-       
+       before do
+         fill_in "Name", with: " "
+         fill_in "Email", with: "barATcom"
+         click_button "Save changes" 
+       end
        it { should have_content('error') }
      end
    end
