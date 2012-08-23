@@ -13,7 +13,7 @@
 #
 
 class User < ActiveRecord::Base
-   attr_accessible :name, :email, :password, :password_confirmation
+   attr_accessible :name, :email, :password, :password_confirmation, :admin
    has_secure_password
    has_many :assets
    
@@ -25,16 +25,29 @@ class User < ActiveRecord::Base
    validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, 
              uniqueness: { case_sensitive: false }
              
-   validates :password, length: { minimum: 6 }
-   validates :password_confirmation, presence: true
+   validates_presence_of :password, length: { minimum: 6 }, on: :create
+   validates_presence_of :password_confirmation, presence: true, on: :create
+   validates_presence_of :password, length: { minimum: 6 }, on: :update
+   validates_presence_of :password_confirmation, presence: true, on: :update
    
    def feed
      Asset.where("user_id = ?", id)
+   end
+   
+   def send_password_reset
+     create_reset_token
+     self.password_reset_sent_at = Time.zone.now
+     save!
+     UserMailer.password_reset(self).deliver
    end
    
    private 
    
      def create_remember_token
        self.remember_token = SecureRandom.urlsafe_base64
+     end
+     
+     def create_reset_token
+       self.password_reset_token = SecureRandom.urlsafe_base64
      end
 end

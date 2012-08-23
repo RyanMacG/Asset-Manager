@@ -1,9 +1,5 @@
 AssetManager::Application.routes.draw do
 
-   resources :users
-   resources :sessions, only: [:new, :create, :destroy]
-   resources :assets
-
    root to: 'static_pages#home'
    
    match '/signup',  to: 'users#new'
@@ -13,6 +9,11 @@ AssetManager::Application.routes.draw do
    match '/help',    to: 'static_pages#help'
    match '/search',  to: 'assets#search'
    match '/last_month', to: 'assets#last_30_days'
+   
+   resources :users
+   resources :sessions, only: [:new, :create, :destroy]
+   resources :assets
+   resources :password_resets
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -24,7 +24,7 @@ class Asset < ActiveRecord::Base
   validates  :serial_no, presence: true, uniqueness: true
   validates  :status, presence: true
   validates  :comment, length: { maximum: 150 }
-  validate :handle_conflict, only: :update
+  validate   :handle_conflict, only: :update
   
   mount_uploader :image, ImageUploader
   
