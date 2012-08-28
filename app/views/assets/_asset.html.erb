@@ -17,5 +17,8 @@
       <br />Cost: <%= number_to_currency(asset.cost, :unit => '£') %>
     <% end %>
   </span><br />
-  <span><%= link_to "Printable PDF", asset_path(asset, format: "pdf") %></span>
+  <span>
+    <% if current_user.admin? %>
+      <%= link_to "Printable PDF", asset_path(asset, format: "pdf") %>
+    <% end %></span>
 </li>
