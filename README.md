@@ -6,6 +6,8 @@ If there are issues with the signup mailer blocking users run the following from
 
 To take the app down for maintenance run "cap deploy:web:disable" and to bring it back up run "cap deploy:web:enable"
 
+At some point it may be worth looking into 404 and 500 pages but currently they mess with the routing to an extreme degree which only becomes apparent on the production server.
+
 ---
 ###Capistrano Commands
 ___
