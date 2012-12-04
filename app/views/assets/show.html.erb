@@ -1,4 +1,10 @@
 <% provide(:title, "Asset #{@asset.id}") %>
+<ul class="breadcrumb">
+  <li><%= link_to 'Home', root_path %><span class="divider">/</span></li>
+  <li><%= link_to 'Assets', assets_path %><span class="divider">/</span></li>
+  <li class="active"><%= "JTC#{@asset.id}" %></li>
+</ul>
+
 <div class="row">
   <aside class="span7">
     <section>
