@@ -3,12 +3,12 @@ source 'https://rubygems.org'
 #Gems that are required in any environment, by defining the version of the gem we want to use
 #we don't have to worry about updates causing unexpected issues.
 gem 'rails', '3.2.9'
-gem 'bootstrap-sass', '2.0.0'
+gem 'bootstrap-sass', '2.2.1.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '>= 2.0.0'
 gem 'faker', '1.0.1'
 gem 'will_paginate', "3.0.3"
-gem 'bootstrap-will_paginate', "0.0.5"
+gem 'bootstrap-will_paginate', "0.0.9"
 gem 'heroku' #for deploying to heroku for production testing
 gem 'bootstrap-datepicker-rails'
 gem 'prawn' #pdf generation
