@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 #Gems that are required in any environment, by defining the version of the gem we want to use
 #we don't have to worry about updates causing unexpected issues.
