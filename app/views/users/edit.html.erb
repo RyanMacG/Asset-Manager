@@ -13,7 +13,7 @@
       <%= f.text_field :email %>
       
       <% if signed_in? %>
-        <% if current_user.admin? %>
+        <% if current_user.admin? && @user.admin %>
           <h4>Toggle user admin rights
           <%= f.check_box(:admin) %></h4>
         <% end %>

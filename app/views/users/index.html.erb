@@ -1,5 +1,12 @@
 <%= provide(:title, 'All users') %>
 <h1>All users</h1>
+<% if current_user.admin? %>
+  <h2>Import Users</h2>
+  <%= form_tag import_users_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import", class: 'btn btn-small' %>
+  <% end %>
+<% end %>
 
 <%= will_paginate %>
 
