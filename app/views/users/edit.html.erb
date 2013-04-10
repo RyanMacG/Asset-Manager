@@ -5,21 +5,21 @@
   <div class="span6 offset3">
     <%= form_for (@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      
+
       <%= f.label :name %>
       <%= f.text_field :name %>
-      
+
       <%= f.label :email %>
       <%= f.text_field :email %>
-      
+
       <% if signed_in? %>
-        <% if current_user.admin? && @user.admin %>
+        <% if current_user.admin? %>
           <h4>Toggle user admin rights
           <%= f.check_box(:admin) %></h4>
         <% end %>
       <% end %>
       <br>
-      
+
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
