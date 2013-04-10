@@ -11,7 +11,7 @@ AssetManager::Application.routes.draw do
   match '/last_month', to: 'assets#last_30_days'
 
   resources :users do
-  collection { post :import }
+    collection { post :import }
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :assets do
