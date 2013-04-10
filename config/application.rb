@@ -8,6 +8,7 @@ require "active_resource/railtie"
 require "sprockets/railtie"
 
 require 'iconv'
+require 'csv'
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)
