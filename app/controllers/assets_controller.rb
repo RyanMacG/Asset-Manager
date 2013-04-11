@@ -1,6 +1,6 @@
 class AssetsController < ApplicationController
   before_filter :signed_in_user
-  before_filter :admin_user, only: [:edit, :update]
+  before_filter :admin_user, only: [:edit, :update, :import]
 
   def create
     @asset = current_user.assets.build(params[:asset])
