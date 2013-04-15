@@ -19,6 +19,10 @@ class AssetPdf
   def initialize(asset)
     @asset  = asset
     @pdf = Prawn::Document.new
+    blank_line
+    jtc_logo
+    blank_line
+    blank_line
     asset_intro
     blank_line
     asset_user
@@ -34,7 +38,7 @@ class AssetPdf
   end
   
   def asset_user
-    @pdf.text "This asset is assigned to #{@asset.user.name} and was last changed at #{@asset.updated_at}"
+    @pdf.text "This asset is assigned to #{@asset.user.name} and was last changed at #{@asset.updated_at.strftime('%d-%m-%Y-%H:%M')}"
   end
   
   def purchase_deets
@@ -56,6 +60,8 @@ class AssetPdf
   def image_blurb
     if @asset.image?
       @pdf.text "The following image has been attached"
+    else
+      @pdf.text "No image has been uploaded for this asset"
     end
   end
   
@@ -67,5 +73,9 @@ class AssetPdf
   
   def render
     @pdf.render
+  end
+
+  def jtc_logo
+    @pdf.image open("public/logo.png"), scale: 0.50, position: :center
   end
 end

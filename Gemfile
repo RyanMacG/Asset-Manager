@@ -1,8 +1,8 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 #Gems that are required in any environment, by defining the version of the gem we want to use
 #we don't have to worry about updates causing unexpected issues.
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.2.1.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '>= 2.0.0'
@@ -17,6 +17,7 @@ gem 'pg_search' #text search on db
 gem 'carrierwave' #image uploading
 gem 'delayed_job_active_record' #for background jobs
 gem 'daemons' #for starting delayed_jobs
+gem 'roo'
 
 #deployment!
 gem 'unicorn' #app server
@@ -29,6 +30,7 @@ group :development, :test do
   gem 'rspec-rails', '>= 2.10.0'
   gem 'guard-rspec' 
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'pry-rails'
 end
 
 # Gems used only for assets and not required
