@@ -1,12 +1,15 @@
 ##Asset Manager
 
-Currently this is only for my usage
+An asset manager for use in a corporate environment
 
 If there are issues with the signup mailer blocking users run the following from deployment server using "cap delayed_job:start", ":stop" and ":restart" are also valid commands
 
 To take the app down for maintenance run "cap deploy:web:disable" and to bring it back up run "cap deploy:web:enable"
 
 At some point it may be worth looking into 404 and 500 pages but currently they mess with the routing to an extreme degree which only becomes apparent on the production server.
+
+Uses [blueprint.css](http://www.blueprintcss.org/) for print.css
+Uses [bootstrap](http://twitter.github.io/bootstrap/) for UI
 
 ---
 ###Capistrano Commands

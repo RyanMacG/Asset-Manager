@@ -20,8 +20,6 @@ class AssetPdf
     @asset  = asset
     @pdf = Prawn::Document.new
     blank_line
-    jtc_logo
-    blank_line
     blank_line
     asset_intro
     blank_line
@@ -73,9 +71,5 @@ class AssetPdf
   
   def render
     @pdf.render
-  end
-
-  def jtc_logo
-    @pdf.image open("public/logo.png"), scale: 0.50, position: :center
   end
 end
