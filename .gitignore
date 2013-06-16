@@ -19,3 +19,4 @@ bundler_stubs/
 .tm_properties
 /config/database.yml
 /public/assets
+/config/initializers/defaults.rb

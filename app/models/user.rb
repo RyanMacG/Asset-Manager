@@ -13,13 +13,12 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation, :admin
+  attr_accessible :name, :email, :password, :password_confirmation
   has_secure_password
   has_many :assets
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
-  after_save :toggle_admin
 
   validates :name,  presence: true, length: { maximum: 80 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -67,11 +66,5 @@ class User < ActiveRecord::Base
 
     def create_reset_token
       self.password_reset_token = SecureRandom.urlsafe_base64
-    end
-
-    def toggle_admin
-     if self.admin == true
-       self.toggle!(:admin)
-     end
     end
 end

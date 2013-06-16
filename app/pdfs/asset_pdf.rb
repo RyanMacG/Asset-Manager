@@ -32,7 +32,7 @@ class AssetPdf
   end
   
   def asset_intro
-    @pdf.text "Asset - JTC#{@asset.id} | #{@asset.asset_description} #{@asset.asset_type}", size: 18, style: :bold
+    @pdf.text "Asset - #{ENV['asset_pre']}#{@asset.id} | #{@asset.asset_description} #{@asset.asset_type}", size: 18, style: :bold
   end
   
   def asset_user
@@ -40,7 +40,7 @@ class AssetPdf
   end
   
   def purchase_deets
-    @pdf.text "It was purchased for GBP(#{@asset.cost}) on #{@asset.date_purchased}"
+    @pdf.text "It was purchased for #{ENV['currency']}(#{@asset.cost}) on #{@asset.date_purchased}"
   end
   
   def comment

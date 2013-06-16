@@ -2,8 +2,8 @@
 ___
 
 - ~~Enable imports for both users and Assets~~
-- Remove reliance on bootstrap-datepicker
+- ~~Remove reliance on bootstrap-datepicker~~
 - ~~Fix breadcrumbs on user page~~
-- Add licensing options
+- ~~Add licensing options~~
 
 ___

@@ -11,13 +11,6 @@
 
       <%= f.label :email %>
       <%= f.text_field :email %>
-
-      <% if signed_in? %>
-        <% if current_user.admin? %>
-          <h4>Toggle user admin rights
-          <%= f.check_box(:admin) %></h4>
-        <% end %>
-      <% end %>
       <br>
 
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
