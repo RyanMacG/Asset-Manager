@@ -24,6 +24,7 @@ namespace :postgresql do
   task :setup, roles: :app do
     run "mkdir -p #{shared_path}/config"
     template "postgresql.yml.erb", "#{shared_path}/config/database.yml"
+    template "config/initializers/defaults.example.rb", "#{shared_path}/config/initializers/defaults.rb"
   end
   after "deploy:setup", "postgresql:setup"
 

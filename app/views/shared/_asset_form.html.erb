@@ -17,7 +17,7 @@
     <%= f.text_field :comment, placeholder: "Any comments?" %>
     
     <%= f.label :date_purchased, "Date Purchased:" %>
-    <%= f.text_field :date_purchased, placeholder: "Date Purchased"%>
+    <%= f.date_select :date_purchased, order: [:day, :month, :year] %>
     
     <%= f.label :image, "Image" %>
     <%= f.file_field :image %>

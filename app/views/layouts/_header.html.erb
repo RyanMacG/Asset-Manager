@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Asset Manager", root_path, id: "logo" %>
+      <%= link_to ENV['comp_logo'], root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
           <% if signed_in? %> <!--should change the links at the top if the user is signed in-->

@@ -20,8 +20,6 @@ class AssetPdf
     @asset  = asset
     @pdf = Prawn::Document.new
     blank_line
-    jtc_logo
-    blank_line
     blank_line
     asset_intro
     blank_line
@@ -34,7 +32,7 @@ class AssetPdf
   end
   
   def asset_intro
-    @pdf.text "Asset - JTC#{@asset.id} | #{@asset.asset_description} #{@asset.asset_type}", size: 18, style: :bold
+    @pdf.text "Asset - #{ENV['asset_pre']}#{@asset.id} | #{@asset.asset_description} #{@asset.asset_type}", size: 18, style: :bold
   end
   
   def asset_user
@@ -42,7 +40,7 @@ class AssetPdf
   end
   
   def purchase_deets
-    @pdf.text "It was purchased for GBP(#{@asset.cost}) on #{@asset.date_purchased}"
+    @pdf.text "It was purchased for #{ENV['currency']}(#{@asset.cost}) on #{@asset.date_purchased}"
   end
   
   def comment
@@ -73,9 +71,5 @@ class AssetPdf
   
   def render
     @pdf.render
-  end
-
-  def jtc_logo
-    @pdf.image open("public/logo.png"), scale: 0.50, position: :center
   end
 end

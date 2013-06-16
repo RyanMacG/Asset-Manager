@@ -90,7 +90,6 @@ footer {
   }
   small {
     float: left;
-    color : white;
   }
   ul {
     float: right;
@@ -134,6 +133,7 @@ input, textarea, select, .uneditable-input {
   padding: 10px;
   margin-bottom: 15px;
   @include box_sizing;
+  height: auto !important;
 }
 
 .field{
@@ -141,8 +141,8 @@ input, textarea, select, .uneditable-input {
   height: auto;
 }
 
-input, select {
-  height: auto !important;
+input{
+  height: 30px !important;
 }
 
 #error_explanation {
@@ -166,6 +166,19 @@ input, select {
 #forgotten {
   font-size: 80%;
   padding-bottom: 5px;
+}
+
+/* date seleect */
+#asset_date_purchased_3i {
+  width: 30%;
+}
+
+#asset_date_purchased_2i {
+  width: 30%;
+}
+
+#asset_date_purchased_1i {
+  width: 30%;
 }
 
 /* users index */
@@ -208,7 +221,7 @@ margin: 0;
   padding-left: 65px;
 }
 
-.status {	
+.status { 
   float: right;
 }
 

@@ -1,6 +1,8 @@
 ##Asset Manager
 
-Currently this is only for my usage
+An asset manager for use in a corporate environment, feel free to submit patches and pull requests.
+
+Distributed under the MIT license (although attribution would be appreciated)
 
 If there are issues with the signup mailer blocking users run the following from deployment server using "cap delayed_job:start", ":stop" and ":restart" are also valid commands
 
@@ -8,7 +10,24 @@ To take the app down for maintenance run "cap deploy:web:disable" and to bring i
 
 At some point it may be worth looking into 404 and 500 pages but currently they mess with the routing to an extreme degree which only becomes apparent on the production server.
 
----
+Uses [blueprint.css](http://www.blueprintcss.org/) for print.css
+Uses [bootstrap](http://twitter.github.io/bootstrap/) for UI
+
+___
+
+###Setup
+
+###Setup
+
+Asset Manager is set up to use environment variables for anything specific to your settings to make these work. There is an example defaults file and it is deployed as part of the capistrano setup stage.
+
+    ENV['comp_logo'] = 'Company Name' #whatever you want the header logo to be
+    ENV['comp_title'] = 'Title' #whatever you want before the pipe in the title
+
+With these set it should work for tracking assets that need to be issued internally
+
+___
+
 ###Capistrano Commands
 ___
 cap bundle:install             # Install the current Bundler environment.  
