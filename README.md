@@ -17,8 +17,6 @@ ___
 
 ###Setup
 
-###Setup
-
 Asset Manager is set up to use environment variables for anything specific to your settings to make these work. There is an example defaults file and it is deployed as part of the capistrano setup stage.
 
     ENV['comp_logo'] = 'Company Name' #whatever you want the header logo to be
