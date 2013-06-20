@@ -1,0 +1,33 @@
+%li
+  %span.id= link_to "JTC#{asset.id}", asset
+  .edit
+    - if current_user.admin?
+      = link_to "edit", edit_asset_path(asset), class: "btn btn-small"
+  %span.serial
+    = asset.serial_no
+    %br/
+  %span.status
+    Status: #{asset.status}
+  %span.type
+    Type: #{asset.asset_type}
+    %br/
+  %span.description
+    Description: #{asset.asset_description}
+    %br/
+  %span.comment
+    %em= asset.comment
+  %span.misc
+    %br>/
+    Added #{time_ago_in_words(asset.created_at)} ago.
+    %br/
+    Assigned to: #{link_to asset.user.name, asset.user}
+    = succeed "Date" do
+      %br/
+    Purchased: #{asset.date_purchased}
+    - if current_user.admin?
+      %br>/
+      Cost: #{number_to_currency(asset.cost, :unit => '£')}
+  %br/
+  %span
+    - if current_user.admin?
+      = link_to "Printable PDF", asset_path(asset, format: "pdf")

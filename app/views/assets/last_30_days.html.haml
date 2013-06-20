@@ -1,0 +1,6 @@
+- provide(:title, 'Last Month')
+%h1 Updated in the last month
+= will_paginate @assets
+%ol.assets
+  = render @assets
+= will_paginate @assets

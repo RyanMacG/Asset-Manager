@@ -1,9 +1,0 @@
-<li>
-  <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) && !user.admin? %>
-  <%= link_to "edit", edit_user_path(user), class: "btn btn-success btn-mini" %>
-  <%= link_to "delete", user, method: :delete,  data: 
-    { confirm: 'Really? Make sure all assets have been re-assigned!' }, 
-    class: "btn btn-danger btn-small", id: "usr_btn" %>
-  <% end %>
-</li>

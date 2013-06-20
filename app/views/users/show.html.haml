@@ -1,0 +1,24 @@
+- provide(:title, @user.name)
+%ul.breadcrumb
+  %li
+    = link_to 'Home', root_path
+    %span.divider /
+  %li
+    = link_to 'Users', users_path
+    %span.divider /
+  %li.active= @user.name
+.row
+  %aside.span7
+    %section
+      %h1
+        = @user.name
+        ,
+        %br/
+        = @user.email
+  .span12
+    - if @user.assets.any?
+      %h3
+        Assets (#{@user.assets.count})
+      %ol.assets
+        = render @asset
+      = will_paginate @asset

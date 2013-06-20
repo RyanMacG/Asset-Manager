@@ -1,0 +1,20 @@
+- provide(:title, "Asset #{@asset.id}")
+%ul.breadcrumb
+  %li
+    = link_to 'Home', root_path
+    %span.divider /
+  %li
+    = link_to 'Assets', assets_path
+    %span.divider /
+  %li.active= "JTC#{@asset.id}"
+.row
+  %aside.span7
+    %section
+      %h1= "JTC#{@asset.id}"
+  .span12
+    %ol.assets
+      = render @asset
+    - if @asset.image?
+      = image_tag @asset.image_url(:thumb).to_s
+      %br/
+      = link_to "Full Image", @asset.image_url.to_s

@@ -18,6 +18,13 @@ gem 'carrierwave' #image uploading
 gem 'delayed_job_active_record' #for background jobs
 gem 'daemons' #for starting delayed_jobs
 gem 'roo'
+gem 'haml-rails'
+gem 'html2haml'
+
+group :development do
+  gem 'hpricot'
+  gem 'ruby_parser'
+end
 
 #deployment!
 gem 'unicorn' #app server
@@ -47,7 +54,7 @@ group :test do
   gem 'rb-fsevent', '0.9.1', :require => false
   gem 'growl'
   gem 'guard-spork'
-  gem 'spork', '0.9.0'
+  gem 'spork', '0.9.2'
   gem 'factory_girl_rails', '1.4.0'
   gem 'cucumber-rails', '1.2.1', require: false
   gem 'database_cleaner', '0.7.0'
