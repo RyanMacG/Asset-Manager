@@ -1,0 +1,8 @@
+- provide(:title, 'Reset Request')
+%h1 Password Reset
+.row
+  .span6.offset3
+    = form_tag password_resets_path, method: :post do
+      = label_tag :email
+      = text_field_tag :email, params[:email]
+      .center= submit_tag "Reset Password", class: "btn btn-large btn-primary"

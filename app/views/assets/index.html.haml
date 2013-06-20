@@ -1,0 +1,11 @@
+= provide(:title, 'Assets')
+%h1 All assets
+- if current_user.admin?
+  %h2 Import assets
+  = form_tag import_assets_path, multipart: true do
+    = file_field_tag :file
+    = submit_tag "Import", class: 'btn btn-small'
+= will_paginate @assets
+%ol.assets
+  = render @assets
+= will_paginate @assets

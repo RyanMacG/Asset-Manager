@@ -1,0 +1,12 @@
+= provide(:title, 'Search')
+%h1 Search
+= form_tag search_path, method: :get do
+  .row
+    %span.span4
+      = text_field_tag :query, params[:query]
+    = submit_tag "Search", name: nil, class: "btn btn-small", id: "srch_btn"
+#assets
+  = will_paginate @assets
+  %ol.assets
+    = render @assets
+  = will_paginate @assets
