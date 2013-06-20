@@ -1,0 +1,13 @@
+- if signed_in?
+  .row
+    %aside.span5
+      %section
+        = render 'shared/user_info'
+      %section
+        = render 'shared/asset_form'
+- else
+  .center.hero-unit
+    %h1 Asset Manager
+    %h2
+      This is the home page for the JTC Asset Manager application
+    = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"

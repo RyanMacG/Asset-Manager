@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title= full_title(yield(:title))
+    = stylesheet_link_tag "application-all", :media => "all"
+    = stylesheet_link_tag "print", :media => "print"
+    /[if IE]
+      <haml:loud> stylesheet_link_tag &amp;quot;application-ie&amp;quot;, :media =&amp;gt; &amp;quot;all&amp;quot; </haml:loud>
+    = csrf_meta_tags
+    = render 'layouts/shim'
+  %body
+    = render 'layouts/header'
+    .container
+      - flash.each do |key, value|
+        %div{:class => "alert alert-#{key}"}= value
+      = yield
+      = render 'layouts/footer'
+      = debug(params) if Rails.env.development?
+    = javascript_include_tag "application"
