@@ -55,9 +55,9 @@ AssetManager::Application.configure do
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "jtc-exch1.jtc65.jtc65.co.uk",
-    port: 25,
-    authentication: "none"
+    address: ENV['mail_server'],
+    port: ENV['mail_port'],
+    authentication: ENV['mail_auth']
   }
   
 
