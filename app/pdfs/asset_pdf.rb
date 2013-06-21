@@ -30,7 +30,7 @@ class AssetPdf
     image
     render
   end
-  
+
   def asset_intro
     @pdf.text "Asset - #{ENV['asset_pre']}#{@asset.id} | #{@asset.asset_description} #{@asset.asset_type}", size: 18, style: :bold
   end

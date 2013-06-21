@@ -40,7 +40,7 @@ class Asset < ActiveRecord::Base
     if query.present?
       search(query)
     else
-      scoped 
+      scoped
     end
   end
 

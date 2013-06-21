@@ -1,10 +1,10 @@
-#permanent sets cookie expiration to 20 years by using a 
+#permanent sets cookie expiration to 20 years by using a
 #"time helper", part of a  series of rails methods that are added to
 #the Fixnum class. this could be manually written as:
 #cookies[:remember_token] = { value: user.remember_token,
 #                             expires: 20.years.from_now.utc }
 #but that's much uglier and verbose.
-#But wait you say; "storing authentication in cookies is dangerous what 
+#But wait you say; "storing authentication in cookies is dangerous what
 #about someone using Firesheep and hijacking another users session?!"
 #OMFGZ you're right...maybe that's why I added in site wide SSL already :P
 
