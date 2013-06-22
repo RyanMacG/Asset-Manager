@@ -6,7 +6,7 @@ server {
   listen 80 default deferred;
   # server_name example.com;
   root <%= current_path %>/public;
-  
+
   if (-f $document_root/system/maintenance.html) {
     return 503;
   }
