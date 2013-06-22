@@ -4,7 +4,7 @@ namespace :monit do
     run "#{sudo} apt-get -y install monit"
   end
   after "deploy:install", "monit:install"
-  
+
   desc "Setup all Monit configuration"
   task :setup do
     monit_config "monitrc", "/etc/monit/monitrc"
@@ -15,14 +15,14 @@ namespace :monit do
     reload
   end
   after "deploy:setup", "monit:setup"
-  
+
   desc "only setup nginx"
   task(:nginx, roles: :web) { monit_config "nginx" }
   desc "only setup pgsql"
   task(:postgresql, roles: :db) { monit_config "postgresql" }
   desc "only setup unicorn"
   task(:unicorn, roles: :app) { monit_config "unicorn" }
-  
+
   %w[start stop restart syntax reload].each do |command|
     task command do
       run "#{sudo} service monit #{command}"
