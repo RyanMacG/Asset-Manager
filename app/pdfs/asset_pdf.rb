@@ -36,7 +36,7 @@ class AssetPdf
   end
 
   def asset_user
-    @pdf.text "This asset is assigned to #{@asset.user.name} and was last changed at #{@asset.updated_at.strftime('%d-%m-%Y-%H:%M')}"
+    @pdf.text "This asset is assigned to #{@asset.user_name} and was last changed at #{@asset.updated_at.strftime('%d-%m-%Y-%H:%M')}"
   end
 
   def purchase_deets
