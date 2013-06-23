@@ -20,7 +20,7 @@
     %br>/
     Added #{time_ago_in_words(asset.created_at)} ago.
     %br/
-    Assigned to: #{link_to asset.user.name, asset.user}
+    Assigned to: #{link_to asset.user_name, asset.user}
     = succeed "Date" do
       %br/
     Purchased: #{asset.date_purchased}

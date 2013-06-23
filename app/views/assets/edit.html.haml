@@ -27,7 +27,7 @@
       = f.label :asset_type, "Asset Type"
       = f.text_field :asset_type
       = f.label :status, "Status"
-      = f.select :status, options_for_select([["Allocated"], ["Stock"], ["Written Off"]])
+      = f.select :status, options_for_status(params[:defaults])
       = f.label :serial_no, "Serial No"
       = f.text_field :serial_no
       = f.label :cost, "Cost"
