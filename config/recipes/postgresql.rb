@@ -24,13 +24,14 @@ namespace :postgresql do
   task :setup, roles: :app do
     run "mkdir -p #{shared_path}/config"
     template "postgresql.yml.erb", "#{shared_path}/config/database.yml"
-    template "config/initializers/defaults.example.rb", "#{shared_path}/config/initializers/defaults.rb"
+    cp "config/initializers/defaults.example.rb", "#{shared_path}/config/initializers/defaults.rb"
   end
   after "deploy:setup", "postgresql:setup"
 
   desc "Symlink the database.yml file into latest release"
   task :symlink, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/initializers/defaults.rb"
   end
   after "deploy:finalize_update", "postgresql:symlink"
 end
