@@ -10,7 +10,7 @@ load "config/recipes/rbenv"
 load "config/recipes/check"
 load "config/recipes/monit"
 
-server "172.16.0.120", :web, :app, :db, primary: true
+server '37.139.1.232', :web, :app, :db, primary: true
 
 set :application, ENV['app_name']
 set :user, ENV['deploy_user']
