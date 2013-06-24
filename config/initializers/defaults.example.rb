@@ -6,7 +6,7 @@ ENV['comp_address_text'] = 'company name' #name of company/something else
 ENV['comp_address'] = 'http://compintranet' #whatever company address is relevant
 ENV['comp_email'] = 'mailto:example@example.com?subject=Issue%20with%20asset%20manager' #the email address of whoever is support this
 ENV['support_name'] = 'John Bloggs' # the name of whoever/what department is responsible
-ENV['token'] = '47c94dfe7cd376f3ff609e0e078c4a5aa485a93113284851ff3520ab9a1b981b64c86b5ba81e94a083a2a1166061881db05c1a6d905ebe89e43e9d7290fbd37e' #Refer to secret_token.rb for information
+ENV['token'] = 'YourSecretToken' #Refer to secret_token.rb for information
 ENV['mail_server'] = 'mail_server.domain.co.uk' #address for your mail server
 ENV['mail_port'] = 'server_port' #port for your mail server
 ENV['mail_auth'] = 'auth_type' #auth type for mail server
