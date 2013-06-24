@@ -12,14 +12,14 @@ load "config/recipes/monit"
 
 server "172.16.0.120", :web, :app, :db, primary: true
 
-set :application, "Asset-Manager"
-set :user, "deployer"
+set :application, ENV['app_name']
+set :user, ENV['deploy_user']
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@github.com:RyanMacG/#{application}.git"
+set :repository, ENV['git_addr']
 set :branch, "master"
 set :maintenance_template_path, File.expand_path("../recipes/templates/maintenance.html.erb", __FILE__)
 

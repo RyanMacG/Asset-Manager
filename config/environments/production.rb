@@ -51,13 +51,16 @@ AssetManager::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { host: "jtcfurnituregroup.com" }
+  config.action_mailer.default_url_options = { host: "heroku.com" }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: ENV['mail_server'],
     port: ENV['mail_port'],
     authentication: ENV['mail_auth']
+    enable_starttls_auto: true,
+    user_name: ENV['gmail_user'],
+    password: ENV['gmail_pass']
   }
 
   # Enable threaded mode
