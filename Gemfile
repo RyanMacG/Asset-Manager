@@ -35,7 +35,7 @@ gem 'rmagick' #for carrierwave thumbnail resizing
 
 group :development, :test do
   gem 'rspec-rails', '>= 2.10.0'
-  gem 'guard-rspec' 
+  gem 'guard-rspec'
   gem 'annotate', '~> 2.4.1.beta'
   gem 'pry-rails'
 end
