@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby "1.9.3" #so that roo works
 
 #Gems that are required in any environment, by defining the version of the gem we want to use
 #we don't have to worry about updates causing unexpected issues.
