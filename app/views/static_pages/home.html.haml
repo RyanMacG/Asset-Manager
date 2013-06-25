@@ -9,5 +9,7 @@
   .center.hero-unit
     %h1 Asset Manager
     %h2
-      This is the home page for the JTC Asset Manager application
+      This is the home page for the
+      = ENV['comp_name']
+      Asset Manager application
     = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
