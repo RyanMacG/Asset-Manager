@@ -20,7 +20,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:RyanMacG/#{application}.git"
-set :branch, "develop"
+set :branch, "master"
 set :maintenance_template_path, File.expand_path("../recipes/templates/maintenance.html.erb", __FILE__)
 
 default_run_options[:pty] = true
