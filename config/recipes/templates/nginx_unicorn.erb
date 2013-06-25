@@ -18,7 +18,7 @@ server {
 
   location ^~ /assets/ {
     gzip_static on;
-    try $uri /old$uri
+    #try $uri /old$uri
     expires max;
     add_header Cache-Control public;
   }
