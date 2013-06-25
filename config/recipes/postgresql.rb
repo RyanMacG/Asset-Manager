@@ -1,5 +1,5 @@
 set_default(:postgresql_host, "localhost")
-set_default(:postgresql_user) { ryanmacg }
+set_default(:postgresql_user) { "ryanmacg" }
 set_default(:postgresql_password) { Capistrano::CLI.password_prompt "PostgreSQL Password: " }
 set_default(:postgresql_database) { "#{application}_production" }
 set_default(:postgresql_pid) { "/var/run/postgresql/9.1-main.pid" }
@@ -23,14 +23,14 @@ namespace :postgresql do
   task :setup, roles: :app do
     run "mkdir -p #{shared_path}/config"
     template "postgresql.yml.erb", "#{shared_path}/config/database.yml"
-    template "config/initializers/defaults.example.rb", "#{shared_path}/config/initializers/defaults.rb"
+    put File.read("config/initializers/defaults.example.rb"), "#{shared_path}/config/defaults.rb"
   end
   after "deploy:setup", "postgresql:setup"
 
   desc "Symlink the database.yml file into latest release"
   task :symlink, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    run "ln -nfs #{shared_path}/config/initializers/defaults.rb #{release_path}/config/initializers/defaults.rb"
+    run "ln -nfs #{shared_path}/config/defaults.rb #{release_path}/config/initializers/defaults.rb"
   end
   after "deploy:finalize_update", "postgresql:symlink"
 end
