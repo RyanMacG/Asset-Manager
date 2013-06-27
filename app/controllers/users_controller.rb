@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.delay.signup_confirmation(@user)
       sign_in @user
-      flash[:success] = "Welcome to the JTC Asset Manager"
+      flash[:success] = "Welcome to the #{ENV['comp_name']} Asset Manager"
       redirect_to @user
     else
       render 'new'
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "Target Annihilated! Pew Pew"
+    flash[:success] = "User Destroyed"
     redirect_to users_path
   end
 

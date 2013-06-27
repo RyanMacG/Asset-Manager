@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "it@jtcfurnituregroup.com"
+  default from: "asset.ryan@gmail.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
   #
   def signup_confirmation(user)
     @user = user
-    mail to: user.email
+    mail to: user.email, subject: "Welcome!"
   end
 
   def password_reset(user)
