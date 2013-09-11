@@ -10,7 +10,7 @@ load "config/recipes/rbenv"
 load "config/recipes/check"
 load "config/recipes/monit"
 
-server '37.139.1.232', :web, :app, :db, primary: true
+server '212.71.255.119', :web, :app, :db, primary: true
 
 set :application, "Asset-Manager"
 set :user, "deployer"
