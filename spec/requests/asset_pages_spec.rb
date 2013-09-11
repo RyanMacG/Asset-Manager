@@ -57,7 +57,7 @@ describe "Asset pages" do
       visit asset_path(asset)
     end
     let(:page_title) { "Asset #{asset.id}" }
-    let(:heading) { "JTC#{asset.id}" }
+    let(:heading) { "#{ENV['asset_pre']}#{asset.id}" }
     
     it_should_behave_like "all pages"
   end

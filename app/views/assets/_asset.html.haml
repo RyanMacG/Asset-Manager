@@ -1,5 +1,5 @@
 %li
-  %span.id= link_to "JTC#{asset.id}", asset
+  %span.id= link_to "#{ENV['asset_pre']}#{asset.id}", asset
   .edit
     - if current_user.admin?
       = link_to "edit", edit_asset_path(asset), class: "btn btn-small"

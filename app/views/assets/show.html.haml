@@ -6,11 +6,11 @@
   %li
     = link_to 'Assets', assets_path
     %span.divider /
-  %li.active= "JTC#{@asset.id}"
+  %li.active= "#{ENV['asset_pre']}#{@asset.id}"
 .row
   %aside.span7
     %section
-      %h1= "JTC#{@asset.id}"
+      %h1= "#{ENV['asset_pre']}#{@asset.id}"
   .span12
     %ol.assets
       = render @asset
