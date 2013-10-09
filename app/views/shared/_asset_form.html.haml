@@ -15,4 +15,9 @@
     = f.date_select :date_purchased, order: [:day, :month, :year]
     = f.label :image, "Image"
     = f.file_field :image
+    - if @current_user.admin?
+      = f.label :cost, "Cost:"
+      = f.text_field :cost
+      = f.label :user_id, "Allocated to:"
+      = collection_select(:asset, :user_id, User.all, :id, :name, prompt: true)
   = f.submit "Add", class: "btn btn-primary", id: "ass_sub"
