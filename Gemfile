@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby "1.9.3" #so that roo works
+ruby "2.0.0"
 
 #Gems that are required in any environment, by defining the version of the gem we want to use
 #we don't have to worry about updates causing unexpected issues.
@@ -38,7 +38,9 @@ group :development, :test do
   gem 'rspec-rails', '>= 2.10.0'
   gem 'guard-rspec'
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'pry'
   gem 'pry-rails'
+  gem 'pry-stack_explorer'
 end
 
 # Gems used only for assets and not required
