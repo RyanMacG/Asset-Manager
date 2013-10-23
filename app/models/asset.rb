@@ -69,7 +69,6 @@ class Asset < ActiveRecord::Base
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      asset.user = find_by_id(spreadsheet.cell(i, 'E'))
       asset = find_or_initialize_by_id(spreadsheet.cell(i, 'A')) || new
       asset.attributes = row.to_hash.slice(*accessible_attributes)
       asset.save!
@@ -79,7 +78,7 @@ class Asset < ActiveRecord::Base
   def self.open_spreadsheet(file)
     case File.extname(file.original_filename)
     when '.csv'
-      then Csv.new(file.path, nil, :ignore)
+      then Roo::Csv.new(file.path, nil, :ignore)
     when '.xls'
       then Roo::Excel.new(file.path, nil, :ignore)
     when '.xlsx'
