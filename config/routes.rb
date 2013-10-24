@@ -1,14 +1,14 @@
 AssetManager::Application.routes.draw do
 
-  root to: 'static_pages#home'
+  root 'static_pages#home'
 
-  match '/signup',  to: 'users#new'
-  match '/signin',  to: 'sessions#new'
+  match '/signup',  to: 'users#new', via: :get
+  match '/signin',  to: 'sessions#new', via: :get
   match '/signout', to: 'sessions#destroy', via: :delete
-  match '/about',   to: 'static_pages#about'
-  match '/help',    to: 'static_pages#help'
-  match '/search',  to: 'assets#search'
-  match '/last_month', to: 'assets#last_30_days'
+  match '/about',   to: 'static_pages#about', via: :get
+  match '/help',    to: 'static_pages#help', via: :get
+  match '/search',  to: 'assets#search', via: :get
+  match '/last_month', to: 'assets#last_30_days', via: :get
 
   resources :users do
     collection { post :import }
