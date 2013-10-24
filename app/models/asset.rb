@@ -16,7 +16,6 @@
 #  updated_at        :datetime        not null
 #
 class Asset < ActiveRecord::Base
-  attr_accessible :asset_description, :asset_type, :comment, :date_purchased, :serial_no, :status, :user_id, :cost, :barcode, :image, :original_updated_at
   belongs_to :user
   delegate :name, to: :user, prefix: true
   validates  :user_id, presence: true
