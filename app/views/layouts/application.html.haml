@@ -2,10 +2,10 @@
 %html
   %head
     %title= full_title(yield(:title))
-    = stylesheet_link_tag "application-all", :media => "all"
-    = stylesheet_link_tag "print", :media => "print"
+    = stylesheet_link_tag "application-all", :media => "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "print", :media => "print", "data-turbolinks-track" => true
     /[if IE]
-      = stylesheet_link_tag "application-ie", :media => "all"
+      = stylesheet_link_tag "application-ie", :media => "all", "data-turbolinks-track" => true
     = csrf_meta_tags
     = render 'layouts/shim'
   %body
@@ -16,4 +16,4 @@
       = yield
       = render 'layouts/footer'
       = debug(params) if Rails.env.development?
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
