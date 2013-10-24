@@ -3,7 +3,7 @@ class AssetsController < ApplicationController
   before_filter :admin_user, only: [:edit, :update, :import]
 
   def create
-    @asset = current_user.assets.build(params[:asset])
+    @asset = current_user.assets.build(asset_params)
     if @asset.save
       redirect_to root_path
       flash.now[:success] = "Asset created!"
@@ -31,7 +31,7 @@ class AssetsController < ApplicationController
 
   def update
     @asset = Asset.find(params[:id])
-    if @asset.update_attributes(params[:asset])
+    if @asset.update_attributes(asset_params)
       redirect_to @asset, notice: "Profile updated"
     else
       render 'edit'
@@ -56,6 +56,11 @@ class AssetsController < ApplicationController
   end
 
   private
+
+    def asset_params
+      params.require(:asset).permit(:asset_description, :asset_type, :comment, :date_purchased, :serial_no, :status, :user_id, :cost, :barcode, :image, :original_updated_at)
+    end
+
     def admin_user
       redirect_to(root_path) unless current_user.admin?
     end
