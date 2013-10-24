@@ -39,8 +39,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'annotate', '~> 2.4.1.beta'
   gem 'pry'
-  gem 'pry-rails'
-  gem 'pry-stack_explorer'
+  gem 'pry-byebug'
 end
 
 # Gems used only for assets and not required
