@@ -1,3 +1,4 @@
+# Handle user actions
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update]
   before_filter :correct_user,   only: [:edit, :update]
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User Destroyed"
+    flash[:success] = 'User Destroyed'
     redirect_to users_path
   end
 
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       sign_in @user
       redirect_to @user
-      flash[:success] = "Profile updated"
+      flash[:success] = 'Profile updated'
     else
       render 'edit'
     end
@@ -50,22 +51,28 @@ class UsersController < ApplicationController
   def import
     User.import(params[:file])
     redirect_to users_path
-    flash[:success] = "Users imported"
+    flash[:success] = 'Users imported'
   end
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(
+                                 :name,
+                                 :email,
+                                 :password,
+                                 :password_confirmation,
+                                 :admin
+                                )
+  end
 
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user) || current_user.admin?
-    end
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user?(@user) || current_user.admin?
+  end
 
-    #No pew pew for plebs
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
+  # No pew pew for plebs
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
+  end
 end
