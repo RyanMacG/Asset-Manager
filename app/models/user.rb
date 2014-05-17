@@ -11,7 +11,6 @@
 #  remember_token  :string(255)
 #  admin           :boolean         default(FALSE)
 #
-
 class User < ActiveRecord::Base
   has_secure_password
   has_many :assets
@@ -21,14 +20,15 @@ class User < ActiveRecord::Base
 
   validates :name,  presence: true, length: { maximum: 80 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-            uniqueness: { case_sensitive: false }
+  validates :email, presence: true,
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
 
   validates_presence_of :password, length: { minimum: 6 }, on: :create
   validates_presence_of :password_confirmation, presence: true, on: :create
 
   def feed
-    Asset.where("user_id = ?", id)
+    Asset.where(user_id: id)
   end
 
   def send_password_reset
@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      user = find_by_id(row["id"]) || new
+      user = find_by_id(row['id']) || new
       user.attributes = row.to_hash.slice(*accessible_attributes)
       user.save!
     end
@@ -54,16 +54,17 @@ class User < ActiveRecord::Base
     when '.csv' then Roo::Csv.new(file.path, nil, :ignore)
     when '.xls' then Roo::Excel.new(file.path, nil, :ignore)
     when '.xlsx' then Roo::Excelx.new(file.path, nil, :ignore)
-    else raise "Unknown file type: #{file.original_filename}"
+    else fail "Unknown file type: #{file.original_filename}"
     end
   end
+
   private
 
-    def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
-    end
+  def create_remember_token
+    self.remember_token = SecureRandom.urlsafe_base64
+  end
 
-    def create_reset_token
-      self.password_reset_token = SecureRandom.urlsafe_base64
-    end
+  def create_reset_token
+    self.password_reset_token = SecureRandom.urlsafe_base64
+  end
 end

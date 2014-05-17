@@ -1,9 +1,9 @@
 namespace :nodejs do
-  desc "Install latest Node.js"
+  desc 'Install latest Node.js'
   task :install, roles: :app do
-    add_apt_repository "ppa:chris-lea/node.js"
+    add_apt_repository 'ppa:chris-lea/node.js'
     run "#{sudo} apt-get -y update"
     run "#{sudo} apt-get -y install nodejs"
   end
-  after "deploy:install", "nodejs:install"
+  after 'deploy:install', 'nodejs:install'
 end

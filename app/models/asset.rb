@@ -14,27 +14,28 @@
 #  date_purchased    :date
 #  created_at        :datetime        not null
 #  updated_at        :datetime        not null
-#
+# Asset model and associations
 class Asset < ActiveRecord::Base
   belongs_to :user
   delegate :name, to: :user, prefix: true
-  validates  :user_id, presence: true
-  validates  :asset_description, presence: true
-  validates  :asset_type, presence: true
-  validates  :serial_no, presence: true, uniqueness: true
-  validates  :status, presence: true
-  validates  :comment, length: { maximum: 150 }
-  validate   :handle_conflict, only: :update
+  validates :user_id, presence: true
+  validates :asset_description, presence: true
+  validates :asset_type, presence: true
+  validates :serial_no, presence: true, uniqueness: true
+  validates :status, presence: true
+  validates :comment, length: { maximum: 150 }
+  validate :handle_conflict, only: :update
 
   mount_uploader :image, ImageUploader
 
   include PgSearch
-  pg_search_scope :search, against: [:asset_description, :status, :asset_type, :comment, :serial_no],
-      using: {tsearch: { dictionary: "english", prefix: true }},
-      associated_against: { user: :name }
+  pg_search_scope :search, against: [
+    :asset_description, :status, :asset_type,
+    :comment, :serial_no], associated_against: { user: :name }, using:
+    { tsearch: { dictionary: 'english', prefix: true } }
 
-  #older assets first
-  default_scope order: 'assets.created_at ASC'
+  # older assets first
+  default_scope { order('assets.created_at ASC') }
 
   def self.text_search(query)
     if query.present?
@@ -44,25 +45,26 @@ class Asset < ActiveRecord::Base
     end
   end
 
-  #for optimistic locking
+  # for optimistic locking
   def original_updated_at
     @original_updated_at || updated_at.to_f
   end
   attr_writer :original_updated_at
 
-  #optimistic locking heavy lifting
+  # optimistic locking heavy lifting
   def handle_conflict
     if @conflict || updated_at.to_f > original_updated_at.to_f
       @conflict = true
       @original_updated_at = nil
-      errors.add :base, "This record changed while you were editing. Take these change into account and submit it again"
+      errors.add :base, 'This record changed while you were editing.
+       Take these changes into account and submit it again'
       changes.each do |attribute, values|
         errors.add attribute, "was #{values.first}"
       end
     end
   end
 
-  #import assets from the old system
+  # import assets from the old system
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
@@ -83,7 +85,7 @@ class Asset < ActiveRecord::Base
     when '.xlsx'
       then Roo::Excelx.new(file.path, nil, :ignore)
     else
-      raise "Uknown file type: #{file.original_filename}"
+      fail "Uknown file type: #{file.original_filename}"
     end
   end
 end
