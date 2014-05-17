@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password_confirmation, presence: true, on: :create
 
   def feed
-    Asset.where("user_id = ?", id)
+    Asset.where(user_id: id)
   end
 
   def send_password_reset
