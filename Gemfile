@@ -5,10 +5,10 @@ ruby '2.1.2'
 #we don't have to worry about updates causing unexpected issues.
 gem 'rails', '4.1.0'
 gem 'bootstrap-sass', '2.2.1.1'
-gem 'bcrypt-ruby', '3.0.1'
+gem 'bcrypt'
 gem 'faker', '1.0.1'
-gem 'will_paginate', "3.0.3"
-gem 'bootstrap-will_paginate', "0.0.9"
+gem 'will_paginate', "~> 3.0.3"
+gem 'bootstrap-will_paginate', "~> 0.0.9"
 gem 'heroku' #for deploying to heroku for production testing
 gem 'prawn' #pdf generation
 gem 'pg' #db
