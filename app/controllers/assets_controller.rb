@@ -1,3 +1,4 @@
+# Handle asset actions
 class AssetsController < ApplicationController
   before_filter :signed_in_user
   before_filter :admin_user, only: [:edit, :update, :import]
@@ -6,7 +7,7 @@ class AssetsController < ApplicationController
     @asset = current_user.assets.build(asset_params)
     if @asset.save
       redirect_to root_path
-      flash.now[:success] = "Asset created!"
+      flash.now[:success] = 'Asset created!'
     else
       render 'static_pages/home'
     end
@@ -19,8 +20,8 @@ class AssetsController < ApplicationController
       format.pdf do
         pdf = AssetPdf.new(@asset)
         send_data pdf.render, filename:    "asset_#{@asset.id}.pdf",
-                              type:        "application/pdf",
-                              disposition: "inline"
+                              type:        'application/pdf',
+                              disposition: 'inline'
       end
     end
   end
@@ -32,14 +33,15 @@ class AssetsController < ApplicationController
   def update
     @asset = Asset.find(params[:id])
     if @asset.update_attributes(asset_params)
-      redirect_to @asset, notice: "Profile updated"
+      redirect_to @asset, notice: 'Profile updated'
     else
       render 'edit'
     end
   end
 
   def search
-    @assets = Asset.text_search(params[:query]).page(params[:page]).per_page(10)
+    @assets = Asset.text_search(params[:query]).page(
+                          params[:page]).per_page(10)
   end
 
   def index
@@ -48,20 +50,25 @@ class AssetsController < ApplicationController
 
   def import
     Asset.import(params[:file])
-    redirect_to assets_path, notice: "Assets imported"
+    redirect_to assets_path, notice: 'Assets imported'
   end
 
   def last_30_days
-    @assets = Asset.where("updated_at >= ?", 30.days.ago).page(params[:page]).per_page(10)
+    @assets = Asset.where('updated_at >= ?', 30.days.ago).page(
+                          params[:page]).per_page(10)
   end
 
   private
 
-    def asset_params
-      params.require(:asset).permit(:asset_description, :asset_type, :comment, :date_purchased, :serial_no, :status, :user_id, :cost, :barcode, :image, :original_updated_at)
-    end
+  def asset_params
+    params.require(:asset).permit(
+                                  :asset_description, :asset_type, :comment,
+                                  :date_purchased, :serial_no, :status,
+                                  :user_id, :cost, :barcode,
+                                  :image, :original_updated_at)
+  end
 
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
+  end
 end
