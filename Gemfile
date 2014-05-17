@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
-ruby "2.0.0"
+ruby '2.1.2'
 
 #Gems that are required in any environment, by defining the version of the gem we want to use
 #we don't have to worry about updates causing unexpected issues.
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.0'
 gem 'bootstrap-sass', '2.2.1.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
@@ -40,8 +40,8 @@ group :development, :test do
   gem 'pry-byebug'
 end
 
-  gem 'sass-rails', '4.0.1'
-  gem 'coffee-rails', '4.0.1'
+  gem 'sass-rails', '~> 4.0'
+  gem 'coffee-rails', '~> 4.0'
   gem 'uglifier', '2.1.1'
   gem 'jquery-rails', '3.0.4'
   gem 'turbolinks', '1.1.1'
