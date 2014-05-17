@@ -34,7 +34,7 @@ class Asset < ActiveRecord::Base
       associated_against: { user: :name }
 
   #older assets first
-  default_scope order: 'assets.created_at ASC'
+  default_scope { order('assets.created_at ASC') }
 
   def self.text_search(query)
     if query.present?
